@@ -45,11 +45,9 @@ export default function Root() {
   const isTransparent = (isHome && scrollY < 750) || (isAbout && scrollY < 600);
 
   return (
-    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100dvh" }}>
       <NavBar isTransparent={isTransparent} />
-      <div className="flex-1">
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </div>
   );

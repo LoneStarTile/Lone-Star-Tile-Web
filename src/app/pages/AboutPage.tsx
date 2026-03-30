@@ -220,7 +220,7 @@ export default function AboutPage() {
       ))}
 
       {/* ── WHY CHOOSE ────────────────────────────────────────── */}
-      <section className="py-16 bg-[#fffae7] border-t-2 border-black">
+      <section className="py-16 bg-[#fffae7]">
         <div className="max-w-[1512px] mx-auto">
           {/* Header row */}
           <div className="px-8 md:px-16 mb-0">

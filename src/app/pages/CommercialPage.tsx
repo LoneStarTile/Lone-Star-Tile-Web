@@ -174,20 +174,20 @@ export default function CommercialPage() {
           </motion.div>
         </div>
 
-        {/* Scroll hint — center bottom */}
+        {/* Scroll hint — right bottom */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-10 right-8 md:right-16 flex flex-col justify-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-          <motion.span
+          <motion.p
             className="switz-regular text-[18px] text-black tracking-[0.36px] opacity-60"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             (Scroll Down)
-          </motion.span>
+          </motion.p>
         </motion.div>
       </section>
 
@@ -331,8 +331,8 @@ export default function CommercialPage() {
             />
           </div>
 
-          {/* Desktop structured square grid layout */}
-          <div className="hidden md:grid grid-cols-5 max-w-[1000px] mx-auto gap-4">
+          {/* Desktop structured layout (transparent, matching Figma) */}
+          <div className="hidden md:flex justify-between items-center max-w-[1000px] mx-auto gap-8 pt-8 px-12">
             {[
               { src: imgMcDonalds, alt: "McDonald's" },
               { src: imgTexasRoadhouse, alt: "Texas Roadhouse" },
@@ -342,12 +342,12 @@ export default function CommercialPage() {
             ].map((logo, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center bg-white border border-black p-4 aspect-square"
+                className="flex items-center justify-center flex-1 h-[70px] mix-blend-multiply"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}

@@ -169,11 +169,11 @@ export default function ResidentialPage() {
             transition={{ duration: 0.5 }}
           >
             <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[640px] h-[550px]" delay={0} />
-            <div className="flex gap-6 items-start w-[640px]">
+            <div className="flex gap-6 items-start w-[850px]">
               <ImageReveal src={imgRectangle14} alt="Living Room detail" className="flex-1 h-[460px]" delay={0.15} />
               <div className="w-[200px] h-[200px] bg-[#d9d9d9] flex-shrink-0" />
             </div>
-            <motion.p className="w-[640px] switz-regular text-[22px] text-black tracking-[0.44px] text-left"
+            <motion.p className="w-[850px] switz-regular text-[22px] text-black tracking-[0.44px] text-left"
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}>
               Living Room Remodel
