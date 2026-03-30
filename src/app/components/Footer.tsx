@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className={`bg-[#fffae7] ${borderClass}`}>
-      <div className="max-w-[1512px] mx-auto px-4 md:px-8 pt-8 md:pt-10 pb-4">
+      <div className="max-w-[1280px] mx-auto px-8 md:px-16 pt-8 md:pt-12 pb-6">
         {/* Desktop layout */}
         <div className="hidden md:flex justify-between gap-12">
           <div className="flex-shrink-0">
