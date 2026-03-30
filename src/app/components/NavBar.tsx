@@ -43,7 +43,7 @@ export default function NavBar({ isTransparent }: NavBarProps) {
         animate={{ y: hidden ? -100 : 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <div className="flex items-center justify-between px-8 py-3 max-w-[1512px] mx-auto">
+        <div className="flex items-center justify-between px-8 py-3 max-w-[1280px] mx-auto">
           {/* Logo */}
           <Link to="/" className="relative z-10" onClick={() => setMenuOpen(false)}>
             <motion.img

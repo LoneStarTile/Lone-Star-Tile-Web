@@ -193,7 +193,7 @@ export default function CommercialPage() {
 
       {/* ── PROJECTS ─────────────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-20">
-        <div className="max-w-[1300px] mx-auto flex flex-col gap-20">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-20">
           <ProjectCard
             title="Jefferson Bank of San Antonio"
             category="Financial Institution"

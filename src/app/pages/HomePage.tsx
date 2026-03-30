@@ -157,7 +157,7 @@ export default function HomePage() {
       </section>
 
       {/* ── ABOUT INTRO ──────────────────────────────────────── */}
-      <section className="pt-20 pb-16 px-8 md:px-16 max-w-[1200px] mx-auto">
+      <section className="pt-20 pb-16 px-8 md:px-16 max-w-[1280px] mx-auto">
         <WordReveal
           text="Quality tile installation for the finest homes and businesses in Texas"
           className="cab-black text-[40px] md:text-[56px] lg:text-[67px] tracking-[-1.34px] text-black mb-16 leading-[1.05]"
@@ -259,7 +259,7 @@ export default function HomePage() {
 
       {/* ── PORTFOLIO HIGHLIGHTS ─────────────────────────────── */}
       <section className="py-16 px-8 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-start justify-between mb-16 gap-4">
             <WordReveal
               text="Portfolio Highlights"

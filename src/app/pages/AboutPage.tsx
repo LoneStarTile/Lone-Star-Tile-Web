@@ -221,7 +221,7 @@ export default function AboutPage() {
 
       {/* ── WHY CHOOSE ────────────────────────────────────────── */}
       <section className="py-16 bg-[#fffae7]">
-        <div className="max-w-[1512px] mx-auto">
+        <div className="max-w-[1280px] mx-auto">
           {/* Header row */}
           <div className="px-8 md:px-16 mb-0">
             <WordReveal

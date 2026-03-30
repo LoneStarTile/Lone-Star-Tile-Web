@@ -49,7 +49,7 @@ export default function ContactPage() {
 
       {/* ── CONTENT ──────────────────────────────────────────── */}
       <section className="px-8 md:px-16 py-16">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-12 md:gap-20">
+        <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row gap-12 md:gap-20">
           {/* Left: contact info — shown below description on mobile */}
           <motion.div
             className="w-full md:w-[280px] flex-shrink-0 flex flex-col gap-12 order-2 md:order-1"
