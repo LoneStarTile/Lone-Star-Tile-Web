@@ -342,12 +342,12 @@ export default function CommercialPage() {
             ].map((logo, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center flex-1 h-[70px] mix-blend-multiply"
+                className="flex items-center justify-center flex-1 h-[70px]"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="w-full h-full object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}
