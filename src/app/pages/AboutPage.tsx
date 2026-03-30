@@ -158,7 +158,7 @@ export default function AboutPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ─ RED INTRO - Full Screen ───────────────────────────── */}
-      <section className="bg-[#af2828] flex flex-col items-center justify-center px-8 md:px-16" style={{ minHeight: "100dvh" }}>
+      <section className="bg-[#af2828] flex flex-col items-center justify-center px-8 md:px-16" style={{ minHeight: "100vh" }}>
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center">
           <motion.h1
             className="cab-black text-[36px] md:text-[60px] text-white tracking-[-1.2px] mb-6 leading-[1.05] text-center"
@@ -188,19 +188,20 @@ export default function AboutPage() {
         >
           {/* Photo side */}
           <motion.div
-            className="w-full md:w-1/2 relative overflow-hidden"
+            className="w-full md:w-1/2 relative overflow-hidden flex items-center justify-center py-8 px-4"
             style={{ backgroundColor: "#d8d0b9", minHeight: "340px" }}
             initial={{ clipPath: pair.reverse ? "inset(0% 0% 0% 100%)" : "inset(0% 100% 0% 0%)" }}
             whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
           >
-            <img
-              src={pair.img}
-              alt=""
-              className="absolute object-cover"
-              style={{ top: "5%", left: "5%", width: "90%", height: "90%" }}
-            />
+            <div className="w-[90%] md:w-[420px] aspect-square">
+              <img
+                src={pair.img}
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
 
           {/* Text side */}

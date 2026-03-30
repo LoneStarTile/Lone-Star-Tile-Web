@@ -13,6 +13,22 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    let color = "#fffae7";
+    if (location.pathname === "/") color = "#000000";
+    if (location.pathname === "/about") color = "#af2828";
+    
+    let metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", color);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "theme-color";
+      meta.content = color;
+      document.head.appendChild(meta);
+    }
+  }, [location.pathname]);
+
   // Reset scroll on page change
   useEffect(() => {
     window.scrollTo({ top: 0 });

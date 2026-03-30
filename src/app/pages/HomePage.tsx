@@ -87,16 +87,16 @@ const bottomRowReviews = [reviews[2], reviews[3], reviews[4]];
 function ReviewCard({ name, text }: { name: string; text: string }) {
   return (
     <div
-      className="flex-shrink-0 w-[240px] md:w-[300px] bg-[#fffae7] flex flex-col items-center justify-start text-center pt-5 px-5 pb-4"
+      className="flex-shrink-0 w-[240px] md:w-[360px] bg-[#fffae7] flex flex-col items-center justify-start text-center pt-5 px-5 pb-4 md:pt-8 md:px-8"
       style={{ border: "10px solid #d8d0b9", aspectRatio: "1 / 1" }}
     >
-      <p className="switz-bold text-[15px] md:text-[18px] text-black tracking-[0.44px] leading-[1.4] mb-2">{name}</p>
+      <p className="switz-bold text-[15px] md:text-[22px] text-black tracking-[0.44px] leading-[1.4] mb-2">{name}</p>
       <div className="flex gap-0.5 justify-center mb-2">
         {[...Array(5)].map((_, j) => (
           <img key={j} src={imgStar1} alt="★" className="w-3.5 h-3.5 md:w-5 md:h-5 object-cover" />
         ))}
       </div>
-      <p className="switz-regular text-[10px] md:text-[12px] text-black tracking-[0.24px] leading-[1.6]">{text}</p>
+      <p className="switz-regular text-[10px] md:text-[16px] text-black tracking-[0.24px] leading-[1.6]">{text}</p>
     </div>
   );
 }
@@ -123,7 +123,7 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden" style={{ height: "100dvh" }}>
+      <section className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.08 }}
@@ -219,26 +219,42 @@ export default function HomePage() {
 
       {/* ── REVIEWS — dual row, opposite directions ───────────── */}
       <section className="py-12 overflow-hidden flex flex-col gap-4">
-        {/* Row 1 — scrolls left */}
-        <InfiniteStrip
-          items={topRowReviews}
-          direction={1}
-          speed={35}
-          gap={16}
-          renderItem={(review, i) => (
-            <ReviewCard key={i} name={review.name} text={review.text} />
-          )}
-        />
-        {/* Row 2 — scrolls right */}
-        <InfiniteStrip
-          items={bottomRowReviews}
-          direction={-1}
-          speed={35}
-          gap={16}
-          renderItem={(review, i) => (
-            <ReviewCard key={i} name={review.name} text={review.text} />
-          )}
-        />
+        {/* Desktop - single row */}
+        <div className="hidden md:block">
+          <InfiniteStrip
+            items={reviews}
+            direction={1}
+            speed={35}
+            gap={24}
+            renderItem={(review, i) => (
+              <ReviewCard key={i} name={review.name} text={review.text} />
+            )}
+          />
+        </div>
+        
+        {/* Mobile - dual row */}
+        <div className="md:hidden flex flex-col gap-4">
+          {/* Row 1 — scrolls left */}
+          <InfiniteStrip
+            items={topRowReviews}
+            direction={1}
+            speed={35}
+            gap={16}
+            renderItem={(review, i) => (
+              <ReviewCard key={i} name={review.name} text={review.text} />
+            )}
+          />
+          {/* Row 2 — scrolls right */}
+          <InfiniteStrip
+            items={bottomRowReviews}
+            direction={-1}
+            speed={35}
+            gap={16}
+            renderItem={(review, i) => (
+              <ReviewCard key={i} name={review.name} text={review.text} />
+            )}
+          />
+        </div>
       </section>
 
       {/* ── PORTFOLIO HIGHLIGHTS ─────────────────────────────── */}

@@ -72,7 +72,7 @@ export default function ResidentialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO LETTER ──────────────────────────────────────── */}
-      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100dvh" }}>
+      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100vh" }}>
         {/* Letter text — vertically centered in full viewport */}
         <div className="flex-1 flex items-center" style={{ paddingBottom: "12vh" }}>
           <div className="max-w-[700px]">
@@ -168,12 +168,12 @@ export default function ResidentialPage() {
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[500px] h-[460px]" delay={0} />
-            <div className="flex gap-6 items-start w-[500px]">
-              <ImageReveal src={imgRectangle14} alt="Living Room detail" className="flex-1 h-[380px]" delay={0.15} />
+            <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[640px] h-[550px]" delay={0} />
+            <div className="flex gap-6 items-start w-[640px]">
+              <ImageReveal src={imgRectangle14} alt="Living Room detail" className="flex-1 h-[460px]" delay={0.15} />
               <div className="w-[200px] h-[200px] bg-[#d9d9d9] flex-shrink-0" />
             </div>
-            <motion.p className="w-[500px] switz-regular text-[22px] text-black tracking-[0.44px] text-left"
+            <motion.p className="w-[640px] switz-regular text-[22px] text-black tracking-[0.44px] text-left"
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}>
               Living Room Remodel

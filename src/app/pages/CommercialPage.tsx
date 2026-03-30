@@ -133,7 +133,7 @@ export default function CommercialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO HEADING ────────────────────────────────────── */}
-      <section className="relative flex flex-col justify-center px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100dvh" }}>
+      <section className="relative flex flex-col justify-center md:justify-start px-8 md:px-16 pt-36 md:pt-48 pb-10" style={{ minHeight: "100vh" }}>
         <div className="max-w-[900px]">
           <motion.div
             initial={{ opacity: 0 }}
@@ -265,33 +265,59 @@ export default function CommercialPage() {
           </motion.div>
         </div>
 
-        {/* Brand logos — full-width infinite strip */}
+        {/* Brand logos */}
         <div className="mt-10">
-          <InfiniteStrip
-            items={[
+          {/* Mobile infinite strip */}
+          <div className="md:hidden">
+            <InfiniteStrip
+              items={[
+                { src: imgMcDonalds, alt: "McDonald's" },
+                { src: imgTexasRoadhouse, alt: "Texas Roadhouse" },
+                { src: imgBillMiller, alt: "Bill Miller" },
+                { src: imgSubway, alt: "Subway" },
+                { src: imgCircleK, alt: "Circle K" },
+              ]}
+              direction={1}
+              speed={30}
+              gap={60}
+              renderItem={(logo, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 flex items-center justify-center"
+                  style={{ width: 100, height: 60 }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{ width: 100, height: 60, objectFit: "contain" }}
+                  />
+                </div>
+              )}
+            />
+          </div>
+
+          {/* Desktop stacked layout (3 then 2) */}
+          <div className="hidden md:flex flex-wrap justify-center max-w-[600px] mx-auto gap-x-12 gap-y-10">
+            {[
               { src: imgMcDonalds, alt: "McDonald's" },
               { src: imgTexasRoadhouse, alt: "Texas Roadhouse" },
               { src: imgBillMiller, alt: "Bill Miller" },
               { src: imgSubway, alt: "Subway" },
               { src: imgCircleK, alt: "Circle K" },
-            ]}
-            direction={1}
-            speed={30}
-            gap={60}
-            renderItem={(logo, i) => (
+            ].map((logo, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 flex items-center justify-center"
-                style={{ width: 100, height: 60 }}
+                className="flex items-center justify-center"
+                style={{ width: 140, height: 80 }}
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  style={{ width: 100, height: 60, objectFit: "contain" }}
+                  style={{ maxWidth: 140, maxHeight: 80, width: "auto", height: "auto", objectFit: "contain" }}
                 />
               </div>
-            )}
-          />
+            ))}
+          </div>
         </div>
       </section>
     </div>

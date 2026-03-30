@@ -1,10 +1,14 @@
-import { Link } from "react-router";
+import { useLocation, Link } from "react-router";
 import { motion } from "motion/react";
 import imgLogo from "figma:asset/68a37a034eedc37718aab8455cbb47758a75eaea.png";
 
 export default function Footer() {
+  const location = useLocation();
+  const isCommercial = location.pathname === "/commercial";
+  const borderClass = isCommercial ? "" : "border-t-2 border-black";
+
   return (
-    <footer className="bg-[#fffae7] border-t-2 border-black">
+    <footer className={`bg-[#fffae7] ${borderClass}`}>
       <div className="max-w-[1512px] mx-auto px-4 md:px-8 pt-8 md:pt-10 pb-6">
         {/* Desktop layout */}
         <div className="hidden md:flex justify-between gap-12">
