@@ -1,0 +1,41 @@
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,700,800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  background-color: #fffae7;
+}
+
+body {
+  background-color: #fffae7;
+}
+
+.cab-black {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 900;
+}
+
+.cab-extrabold {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 800;
+}
+
+.switz-regular {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 400;
+}
+
+.switz-medium {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 500;
+}
+
+.switz-bold {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 700;
+}
+
+.switz-extrabold {
+  font-family: 'Switzer', sans-serif;
+  font-weight: 800;
+}
