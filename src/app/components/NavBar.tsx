@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import imgLogo from "figma:asset/68a37a034eedc37718aab8455cbb47758a75eaea.png";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
+import imgLogo from "figma:asset/68a37a034eedc37718aab8455cbb47758a75eaea.webp";
 
 interface NavBarProps {
   isTransparent: boolean;
@@ -18,6 +18,18 @@ const navLinks = [
 export default function NavBar({ isTransparent }: NavBarProps) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 150 && !menuOpen) {
+      setHidden(true); // scrolling down, past threshold -> hide
+    } else {
+      setHidden(false); // scrolling up, or at top -> show
+    }
+  });
 
   const textColor = isTransparent && !menuOpen ? "text-white" : "text-black";
   const barColor = isTransparent && !menuOpen ? "bg-white" : "bg-black";
@@ -28,8 +40,8 @@ export default function NavBar({ isTransparent }: NavBarProps) {
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 bg-transparent"
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        animate={{ y: hidden ? -100 : 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <div className="flex items-center justify-between px-8 py-3 max-w-[1512px] mx-auto">
           {/* Logo */}

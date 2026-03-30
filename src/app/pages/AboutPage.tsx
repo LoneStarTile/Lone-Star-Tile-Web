@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useRef, useState, useEffect } from "react";
-import imgWbenc1 from "figma:asset/7e27992e65e400ea38d2f812589f267a66267c3b.png";
-import imgEsbe1 from "figma:asset/424bd3c3707da0546d139b0904459970bfed6dfd.png";
-import imgSbe1 from "figma:asset/0786cc7b78ef1bbda4088710bb6325da20a18966.png";
-import imgHsbe1 from "figma:asset/6949fe3412ea28ac01b4f393aa2f91e9b6e05ba8.png";
-import imgCtef from "figma:asset/881ba30fe7f6037167dbfb246539b56b86c83cb1.png";
+import imgWbenc1 from "figma:asset/7e27992e65e400ea38d2f812589f267a66267c3b.webp";
+import imgEsbe1 from "figma:asset/424bd3c3707da0546d139b0904459970bfed6dfd.webp";
+import imgSbe1 from "figma:asset/0786cc7b78ef1bbda4088710bb6325da20a18966.webp";
+import imgHsbe1 from "figma:asset/6949fe3412ea28ac01b4f393aa2f91e9b6e05ba8.webp";
+import imgCtef from "figma:asset/881ba30fe7f6037167dbfb246539b56b86c83cb1.webp";
 import { InfiniteStrip } from "../components/InfiniteStrip";
 
 const stagger = {
@@ -157,8 +157,8 @@ export default function AboutPage() {
 
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
-      {/* ─ RED INTRO - Full Screen ───────────────────────────── */}
-      <section className="bg-[#af2828] flex flex-col items-center justify-center px-8 md:px-16" style={{ minHeight: "100vh" }}>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="relative w-full flex flex-col items-center justify-center px-8 md:px-16" style={{ minHeight: "100dvh", backgroundColor: "#af2828" }}>
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center">
           <motion.h1
             className="cab-black text-[36px] md:text-[60px] text-white tracking-[-1.2px] mb-6 leading-[1.05] text-center"

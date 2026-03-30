@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import imgRectangle16 from "figma:asset/36c4134fe0d47689c7e4b6553b0525dd3a544698.png";
-import imgRectangle15 from "figma:asset/1387bd8803ed9d617475ab0483c38dee54ea77a1.png";
-import imgRectangle13 from "figma:asset/5d1b4f54067cb864eb79bc55d45a58e3bf5ded11.png";
-import imgRectangle14 from "figma:asset/5e06adb64d8657513049d54e3e3ac77ebe34d283.png";
-import imgRectangle12 from "figma:asset/296e21358e91d2fe6faeaf23c5ce1bfca10db4ca.png";
-import imgRectangle17 from "figma:asset/dc2fccb0c18bff45d4fa9c5cb38a5f4fe49a4daf.png";
+import imgRectangle16 from "figma:asset/36c4134fe0d47689c7e4b6553b0525dd3a544698.webp";
+import imgRectangle15 from "figma:asset/1387bd8803ed9d617475ab0483c38dee54ea77a1.webp";
+import imgRectangle13 from "figma:asset/5d1b4f54067cb864eb79bc55d45a58e3bf5ded11.webp";
+import imgRectangle14 from "figma:asset/5e06adb64d8657513049d54e3e3ac77ebe34d283.webp";
+import imgRectangle12 from "figma:asset/296e21358e91d2fe6faeaf23c5ce1bfca10db4ca.webp";
+import imgRectangle17 from "figma:asset/dc2fccb0c18bff45d4fa9c5cb38a5f4fe49a4daf.webp";
 
 const stagger = {
   hidden: {},
@@ -72,7 +72,7 @@ export default function ResidentialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO LETTER ──────────────────────────────────────── */}
-      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100vh" }}>
+      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100dvh" }}>
         {/* Letter text — vertically centered in full viewport */}
         <div className="flex-1 flex items-center" style={{ paddingBottom: "12vh" }}>
           <div className="max-w-[700px]">

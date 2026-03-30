@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import imgPhoto from "figma:asset/faf500b9452a4888d24838c5d28723781c96a6d1.png";
-import imgCommercialPic from "figma:asset/7e9192c43542e58faa7d59e306090b76a167c788.png";
-import imgStar1 from "figma:asset/51d3a45f3e71b06a862572a28cbf214fd43b2333.png";
+import imgPhoto from "figma:asset/faf500b9452a4888d24838c5d28723781c96a6d1.webp";
+import imgCommercialPic from "figma:asset/7e9192c43542e58faa7d59e306090b76a167c788.webp";
+import imgStar1 from "figma:asset/51d3a45f3e71b06a862572a28cbf214fd43b2333.webp";
 import { InfiniteStrip } from "../components/InfiniteStrip";
 
 // Animation variants
@@ -123,7 +123,7 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
+      <section className="relative w-full overflow-hidden" style={{ height: "100dvh" }}>
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.08 }}

@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
-import imgMcDonalds from "figma:asset/15c98b41836eeaa78add4fa9a91fd641526aacea.png";
-import imgTexasRoadhouse from "figma:asset/5b0b7795deed69984ddf48a4635ea7bb59cf573e.png";
-import imgBillMiller from "figma:asset/1efe4766950d4d0199b295643f2f3a65cbe97b0d.png";
-import imgSubway from "figma:asset/1448da4ed4ef5ecb455a281a90fb72182f5aed03.png";
-import imgCircleK from "figma:asset/8e6420179bc554e900bad0b8cfe11e13e5460312.png";
-import imgPhoto1 from "figma:asset/f26fb1d57a685387a8c3565e4f0881a63d09178a.png";
-import imgPhoto2 from "figma:asset/e2d6e4ad96d967d9dbc1b8f647cf664c5ed1e92b.png";
-import imgPhoto3 from "figma:asset/8523aa1ed9c7a1dd94dcaa81f86286c397aa2005.png";
-import imgPhoto4 from "figma:asset/145af62ddf97091b2f85253440b42fc28843977e.png";
+import imgMcDonalds from "figma:asset/15c98b41836eeaa78add4fa9a91fd641526aacea.webp";
+import imgTexasRoadhouse from "figma:asset/5b0b7795deed69984ddf48a4635ea7bb59cf573e.webp";
+import imgBillMiller from "figma:asset/1efe4766950d4d0199b295643f2f3a65cbe97b0d.webp";
+import imgSubway from "figma:asset/1448da4ed4ef5ecb455a281a90fb72182f5aed03.webp";
+import imgCircleK from "figma:asset/8e6420179bc554e900bad0b8cfe11e13e5460312.webp";
+import imgPhoto1 from "figma:asset/f26fb1d57a685387a8c3565e4f0881a63d09178a.webp";
+import imgPhoto2 from "figma:asset/e2d6e4ad96d967d9dbc1b8f647cf664c5ed1e92b.webp";
+import imgPhoto3 from "figma:asset/8523aa1ed9c7a1dd94dcaa81f86286c397aa2005.webp";
+import imgPhoto4 from "figma:asset/145af62ddf97091b2f85253440b42fc28843977e.webp";
 import { InfiniteStrip } from "../components/InfiniteStrip";
 
 const stagger = {
@@ -133,27 +133,62 @@ export default function CommercialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO HEADING ────────────────────────────────────── */}
-      <section className="relative flex flex-col justify-center md:justify-start px-8 md:px-16 pt-36 md:pt-48 pb-10" style={{ minHeight: "100vh" }}>
+      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "100dvh" }}>
         <div className="max-w-[900px]">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {["Texas sized projects", "Texas sized standards"].map((line, i) => (
-              <div key={i} style={{ overflow: "hidden" }}>
-                <motion.p
-                  className="switz-extrabold text-[32px] md:text-[40px] text-black tracking-[0.8px] leading-[1.4]"
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                  {line}
-                </motion.p>
-              </div>
-            ))}
+            {/* Mobile text stacked */}
+            <div className="md:hidden flex flex-col items-start pt-[10vh]">
+              {["Texas sized projects", "Texas sized standards"].map((line, i) => (
+                <div key={i} style={{ overflow: "hidden" }}>
+                  <motion.p
+                    className="switz-extrabold text-[28px] text-black tracking-[0.6px] leading-[1.3] truncate max-w-full"
+                    initial={{ y: "110%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  >
+                    {line}
+                  </motion.p>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop text */}
+            <div className="hidden md:block">
+              {["Texas sized projects", "Texas sized standards"].map((line, i) => (
+                <div key={i} style={{ overflow: "hidden" }}>
+                  <motion.p
+                    className="switz-extrabold text-[40px] text-black tracking-[0.8px] leading-[1.4]"
+                    initial={{ y: "110%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  >
+                    {line}
+                  </motion.p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
+
+        {/* Scroll hint — center bottom */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+        >
+          <motion.span
+            className="switz-regular text-[18px] text-black tracking-[0.36px] opacity-60"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            (Scroll Down)
+          </motion.span>
+        </motion.div>
       </section>
 
       {/* ── PROJECTS ─────────────────────────────────────────── */}
@@ -296,8 +331,8 @@ export default function CommercialPage() {
             />
           </div>
 
-          {/* Desktop stacked layout (3 then 2) */}
-          <div className="hidden md:flex flex-wrap justify-center max-w-[600px] mx-auto gap-x-12 gap-y-10">
+          {/* Desktop structured square grid layout */}
+          <div className="hidden md:grid grid-cols-5 max-w-[1000px] mx-auto gap-4">
             {[
               { src: imgMcDonalds, alt: "McDonald's" },
               { src: imgTexasRoadhouse, alt: "Texas Roadhouse" },
@@ -307,13 +342,12 @@ export default function CommercialPage() {
             ].map((logo, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center"
-                style={{ width: 140, height: 80 }}
+                className="flex items-center justify-center bg-white border border-black p-4 aspect-square"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  style={{ maxWidth: 140, maxHeight: 80, width: "auto", height: "auto", objectFit: "contain" }}
+                  className="w-full h-full object-contain"
                 />
               </div>
             ))}
