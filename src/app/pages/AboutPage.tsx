@@ -158,7 +158,7 @@ export default function AboutPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full flex flex-col items-center justify-center px-8 md:px-16" style={{ minHeight: "100dvh", backgroundColor: "#af2828" }}>
+      <section className="relative w-full flex flex-col items-center justify-center px-8 md:px-16" style={{ minHeight: "100vh", backgroundColor: "#af2828" }}>
         <div className="max-w-[1100px] mx-auto flex flex-col items-center text-center">
           <motion.h1
             className="cab-black text-[36px] md:text-[60px] text-white tracking-[-1.2px] mb-6 leading-[1.05] text-center"

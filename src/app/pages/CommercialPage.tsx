@@ -133,7 +133,7 @@ export default function CommercialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO HEADING ────────────────────────────────────── */}
-      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "100dvh" }}>
+      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "100vh" }}>
         <div className="max-w-[900px]">
           <motion.div
             initial={{ opacity: 0 }}
@@ -174,9 +174,9 @@ export default function CommercialPage() {
           </motion.div>
         </div>
 
-        {/* Scroll hint — right bottom */}
+        {/* Scroll hint — center on mobile, right bottom on desktop */}
         <motion.div
-          className="absolute bottom-10 right-8 md:right-16 flex flex-col justify-end"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}

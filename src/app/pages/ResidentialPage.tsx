@@ -72,7 +72,7 @@ export default function ResidentialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO LETTER ──────────────────────────────────────── */}
-      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100dvh" }}>
+      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100vh" }}>
         {/* Letter text — vertically centered in full viewport */}
         <div className="flex-1 flex items-center" style={{ paddingBottom: "12vh" }}>
           <div className="max-w-[700px]">
@@ -109,16 +109,12 @@ export default function ResidentialPage() {
           </div>
         </div>
 
-        {/* Scroll hint — bottom right */}
-        <div className="flex justify-end">
+        {/* Scroll hint — center on mobile, right on desktop */}
+        <div className="flex justify-center md:justify-end">
           <motion.p
             className="switz-regular text-[18px] text-black tracking-[0.36px] opacity-60"
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 0.6, y: [0, 8, 0] }}
-            transition={{
-              opacity: { duration: 1, delay: 1 },
-              y: { duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 },
-            }}
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             (Scroll Down)
           </motion.p>

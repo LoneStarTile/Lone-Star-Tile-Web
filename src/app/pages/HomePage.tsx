@@ -123,7 +123,7 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden" style={{ height: "100dvh" }}>
+      <section className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.08 }}
