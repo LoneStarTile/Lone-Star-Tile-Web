@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className={`bg-[#fffae7] ${borderClass}`}>
-      <div className="max-w-[1280px] mx-auto px-8 md:px-16 pt-8 md:pt-12 pb-6">
+      <div className="max-w-[1280px] mx-auto px-8 md:px-16 pt-8 md:pt-12 pb-2">
         {/* Desktop layout */}
         <div className="hidden md:flex justify-between gap-12">
           <div className="flex-shrink-0">
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright row */}
-        <div className="flex items-center justify-between mt-6 md:mt-8">
+        <div className="flex items-center justify-between mt-12 md:mt-24">
           <p className="switz-regular text-[8px] md:text-[10px] tracking-[0.8px] md:tracking-[1px] text-black">© 2026 Lone Star Tile. All rights reserved</p>
           <p className="switz-regular text-[8px] tracking-[0.8px] text-black">CREATED BY HENRY NEFF</p>
         </div>
