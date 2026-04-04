@@ -73,16 +73,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Socials */}
-            <div className="flex flex-col gap-2">
-              <p className="switz-bold text-[26px] md:text-[32px] text-black tracking-[0.64px] leading-[48px]">socials</p>
-              <p className="switz-regular text-[14px] md:text-[16px] text-black tracking-[0.32px] leading-[36px]">
-                INSTAGRAM: @blank12
-              </p>
-              <p className="switz-regular text-[14px] md:text-[16px] text-black tracking-[0.32px] leading-[36px]">
-                LinkedIn: @LoneStarTile
-              </p>
-            </div>
+
           </motion.div>
 
           {/* Right: description — shown first on mobile */}

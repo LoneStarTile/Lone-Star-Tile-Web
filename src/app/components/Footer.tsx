@@ -27,16 +27,13 @@ export default function Footer() {
               <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">EMAIL: blank12@gmail.com</p>
               <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">PHONE: +1 123-456-7890</p>
             </div>
-            <div className="flex flex-col gap-3">
-              <p className="switz-bold text-[22px] tracking-[0.44px] text-black leading-[48px]">socials</p>
-              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">INSTAGRAM: @blank12</p>
-              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">LinkedIn: @LoneStarTile</p>
-            </div>
+
             <div className="flex flex-col gap-3">
               <p className="switz-bold text-[22px] tracking-[0.44px] text-black leading-[48px]">company</p>
               <Link to="/residential" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Residential</Link>
               <Link to="/commercial" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Commercial</Link>
               <Link to="/about" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">About</Link>
+              <Link to="/contact" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Contact</Link>
             </div>
           </div>
         </div>
@@ -58,11 +55,7 @@ export default function Footer() {
                 <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[24px]">EMAIL: blank12@gmail.com</p>
                 <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[24px]">PHONE: +1 123-456-7890</p>
               </div>
-              <div>
-                <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">socials</p>
-                <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[24px]">INSTAGRAM: @blank12</p>
-                <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[24px]">LinkedIn: @LoneStarTile</p>
-              </div>
+
             </div>
             {/* Right column: company */}
             <div>
