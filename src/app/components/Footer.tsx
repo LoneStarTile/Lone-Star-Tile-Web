@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Mobile layout — matches Figma 2-column design */}
+        {/* Mobile layout */}
         <div className="md:hidden">
           <Link to="/">
             <img
@@ -47,24 +47,12 @@ export default function Footer() {
               className="h-[60px] w-auto object-contain mb-6"
             />
           </Link>
-          <div className="flex justify-between gap-4 mb-6">
-            {/* Left column: contacts + socials */}
-            <div className="flex flex-col gap-4">
-              <div>
-                <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">contacts</p>
-                <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[24px]">EMAIL: blank12@gmail.com</p>
-                <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[24px]">PHONE: +1 123-456-7890</p>
-              </div>
-
-            </div>
-            {/* Right column: company */}
-            <div>
-              <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">company</p>
-              <Link to="/residential" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Residential</Link>
-              <Link to="/commercial" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Commercial</Link>
-              <Link to="/about" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">About</Link>
-              <Link to="/contact" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Contact</Link>
-            </div>
+          <div className="mb-6">
+            <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">company</p>
+            <Link to="/residential" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Residential</Link>
+            <Link to="/commercial" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Commercial</Link>
+            <Link to="/about" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">About</Link>
+            <Link to="/contact" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Contact</Link>
           </div>
         </div>
 

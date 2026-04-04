@@ -133,7 +133,7 @@ export default function CommercialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO HEADING ────────────────────────────────────── */}
-      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "100vh" }}>
+      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "60vh", background: "#fffae7" }}>
         <div className="max-w-[900px]">
           <motion.div
             initial={{ opacity: 0 }}
@@ -145,7 +145,7 @@ export default function CommercialPage() {
               {["Texas sized projects", "Texas sized standards"].map((line, i) => (
                 <div key={i} style={{ overflow: "hidden" }}>
                   <motion.p
-                    className="switz-extrabold text-[28px] text-black tracking-[0.6px] leading-[1.3] truncate max-w-full"
+                    className="switz-extrabold text-[22px] text-black tracking-[0.4px] leading-[1.3] whitespace-nowrap"
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
                     transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
