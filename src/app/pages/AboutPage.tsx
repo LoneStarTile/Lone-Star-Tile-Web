@@ -189,24 +189,17 @@ export default function AboutPage() {
           {/* Photo side */}
           <motion.div
             className="w-full md:w-1/2 flex items-center justify-center"
-            style={{ backgroundColor: "#d8d0b9", minHeight: "340px", padding: "20px" }}
+            style={{ backgroundColor: "#d8d0b9", padding: "20px" }}
             initial={{ opacity: 0, x: pair.reverse ? 60 : -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div
-              style={{
-                width: "100%",
-                maxWidth: "420px",
-                overflow: "hidden",
-                flexShrink: 0,
-              }}
-            >
+            <div style={{ width: "100%", overflow: "hidden" }}>
               <img
                 src={pair.img}
                 alt=""
-                style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
+                style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }}
               />
             </div>
           </motion.div>

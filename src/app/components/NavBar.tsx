@@ -24,10 +24,12 @@ export default function NavBar({ isTransparent }: NavBarProps) {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
-    if (latest > previous && latest > 150 && !menuOpen) {
-      setHidden(true); // scrolling down, past threshold -> hide
+    // Only hide on mobile (window width < 768px)
+    const isMobile = window.innerWidth < 768;
+    if (isMobile && latest > previous && latest > 150 && !menuOpen) {
+      setHidden(true);
     } else {
-      setHidden(false); // scrolling up, or at top -> show
+      setHidden(false);
     }
   });
 
