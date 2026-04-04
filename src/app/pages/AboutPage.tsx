@@ -184,18 +184,18 @@ export default function AboutPage() {
       {photoPairs.map((pair, i) => (
         <section
           key={i}
-          className={`flex flex-col ${pair.reverse ? "md:flex-row-reverse" : "md:flex-row"} min-h-[500px]`}
+          className={`flex flex-col ${pair.reverse ? "md:flex-row-reverse" : "md:flex-row"}`}
         >
           {/* Photo side */}
           <motion.div
-            className="w-full md:w-1/2"
-            style={{ backgroundColor: "#d8d0b9", padding: "20px", display: "flex", flexDirection: "column" }}
+            className="w-full md:w-1/2 relative"
+            style={{ backgroundColor: "#d8d0b9", minHeight: "460px" }}
             initial={{ opacity: 0, x: pair.reverse ? 60 : -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div style={{ flex: 1, overflow: "hidden", minHeight: "300px" }}>
+            <div style={{ position: "absolute", inset: "20px", overflow: "hidden" }}>
               <img
                 src={pair.img}
                 alt=""
