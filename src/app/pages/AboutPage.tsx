@@ -200,7 +200,6 @@ export default function AboutPage() {
                 width: "100%",
                 maxWidth: "420px",
                 aspectRatio: "1 / 1",
-                border: "10px solid #b8b0a0",
                 overflow: "hidden",
                 flexShrink: 0,
               }}
