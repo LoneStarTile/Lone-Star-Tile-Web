@@ -29,9 +29,9 @@ export default function Root() {
       document.head.appendChild(meta);
     }
     
-    // Explicitly update body background to always be cream so footer overscroll is flush
-    document.body.style.backgroundColor = "#fffae7";
-    document.documentElement.style.backgroundColor = "#fffae7";
+    // Update body background so iOS Safari styles the top status bar and overscroll dynamically
+    document.body.style.backgroundColor = color;
+    document.documentElement.style.backgroundColor = color;
   }, [location.pathname]);
 
   // Reset scroll on page change

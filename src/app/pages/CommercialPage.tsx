@@ -133,7 +133,7 @@ export default function CommercialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO HEADING ────────────────────────────────────── */}
-      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "60vh", background: "#fffae7" }}>
+      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "100vh", background: "#fffae7" }}>
         <div className="max-w-[900px]">
           <motion.div
             initial={{ opacity: 0 }}
