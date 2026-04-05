@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
@@ -12,31 +12,6 @@ export default function Root() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useLayoutEffect(() => {
-    let color: string | null = "#fffae7";
-    if (location.pathname === "/") color = null;
-    if (location.pathname === "/residential") color = "#fffae7";
-    if (location.pathname === "/commercial") color = "#fffae7";
-    if (location.pathname === "/about") color = "#af2828";
-    
-    // Update theme-color meta tag instantly before browser paint
-    let metaThemeColor = document.querySelector("meta[name=theme-color]");
-    if (color) {
-      if (!metaThemeColor) {
-        metaThemeColor = document.createElement('meta');
-        metaThemeColor.setAttribute("name", "theme-color");
-        document.head.appendChild(metaThemeColor);
-      }
-      metaThemeColor.setAttribute("content", color);
-      document.body.style.backgroundColor = color;
-      document.documentElement.style.backgroundColor = color;
-    } else {
-      if (metaThemeColor) metaThemeColor.remove();
-      document.body.style.backgroundColor = "";
-      document.documentElement.style.backgroundColor = "";
-    }
-  }, [location.pathname]);
 
   // Reset scroll on page change
   useEffect(() => {
