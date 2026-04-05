@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
@@ -13,25 +13,29 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    let color = "#fffae7";
-    if (location.pathname === "/") color = "#000000";
+  useLayoutEffect(() => {
+    let color: string | null = "#fffae7";
+    if (location.pathname === "/") color = null;
+    if (location.pathname === "/residential") color = "#fffae7";
+    if (location.pathname === "/commercial") color = "#fffae7";
     if (location.pathname === "/about") color = "#af2828";
     
-    // Update theme-color meta tag
+    // Update theme-color meta tag instantly before browser paint
     let metaThemeColor = document.querySelector("meta[name=theme-color]");
-    if (metaThemeColor) {
+    if (color) {
+      if (!metaThemeColor) {
+        metaThemeColor = document.createElement('meta');
+        metaThemeColor.setAttribute("name", "theme-color");
+        document.head.appendChild(metaThemeColor);
+      }
       metaThemeColor.setAttribute("content", color);
+      document.body.style.backgroundColor = color;
+      document.documentElement.style.backgroundColor = color;
     } else {
-      const meta = document.createElement('meta');
-      meta.name = "theme-color";
-      meta.content = color;
-      document.head.appendChild(meta);
+      if (metaThemeColor) metaThemeColor.remove();
+      document.body.style.backgroundColor = "";
+      document.documentElement.style.backgroundColor = "";
     }
-    
-    // Update body background so iOS Safari styles the top status bar and overscroll dynamically
-    document.body.style.backgroundColor = color;
-    document.documentElement.style.backgroundColor = color;
   }, [location.pathname]);
 
   // Reset scroll on page change
