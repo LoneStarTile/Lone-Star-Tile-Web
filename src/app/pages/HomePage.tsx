@@ -141,18 +141,20 @@ export default function HomePage() {
 
         {/* Scroll hint — center bottom */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-20 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-          <motion.span
-            className="switz-regular text-[18px] text-white tracking-[0.36px]"
-            animate={{ y: [0, 6, 0] }}
+          <motion.div
+            className="bg-black/30 backdrop-blur-md px-6 py-2 rounded-[30px] border border-white/20"
+            animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            (Scroll Down)
-          </motion.span>
+            <span className="switz-regular text-[16px] md:text-[18px] text-white tracking-[0.36px]">
+              (Scroll Down)
+            </span>
+          </motion.div>
         </motion.div>
       </section>
 

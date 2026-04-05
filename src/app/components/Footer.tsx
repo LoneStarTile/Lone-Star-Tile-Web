@@ -39,15 +39,22 @@ export default function Footer() {
         </div>
 
         {/* Mobile layout */}
-        <div className="md:hidden">
-          <Link to="/">
-            <img
-              src={imgLogo}
-              alt="Lone Star Tile"
-              className="h-[60px] w-auto object-contain mb-6"
-            />
-          </Link>
-          <div className="mb-6">
+        <div className="md:hidden flex gap-8">
+          <div className="flex-1">
+            <Link to="/">
+              <img
+                src={imgLogo}
+                alt="Lone Star Tile"
+                className="h-[60px] w-auto object-contain mb-6"
+              />
+            </Link>
+            <div className="mb-6 flex flex-col gap-1">
+              <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">contacts</p>
+              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">EMAIL: blank12@gmail.com</p>
+              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">PHONE: +1 123-456-7890</p>
+            </div>
+          </div>
+          <div className="mb-6 mr-[40px] flex-shrink-0">
             <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">company</p>
             <Link to="/residential" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Residential</Link>
             <Link to="/commercial" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Commercial</Link>
