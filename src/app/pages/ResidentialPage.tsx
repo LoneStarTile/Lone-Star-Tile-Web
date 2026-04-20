@@ -145,15 +145,17 @@ export default function ResidentialPage() {
 
       {/* ── LIVING ROOM REMODEL ──────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
-        {/* Desktop — original stacked layout, bottom photo narrower */}
+        {/* Desktop — stacked, bottom photo wider, text under left edge of bottom photo */}
         <div className="hidden md:flex flex-col gap-6 items-end max-w-[1200px] ml-auto">
-          <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[65%] h-[550px]" delay={0} />
-          <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-[52%] h-[420px]" delay={0.15} />
-          <motion.p className="w-full switz-regular text-[22px] text-black tracking-[0.44px] text-left"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
-            Living Room Remodel
-          </motion.p>
+          <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[58%] h-[550px]" delay={0} />
+          <div className="flex flex-col gap-3 w-[68%]">
+            <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full h-[420px]" delay={0.15} />
+            <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-left"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
+              Living Room Remodel
+            </motion.p>
+          </div>
         </div>
         {/* Mobile */}
         <div className="md:hidden flex flex-col gap-2">
@@ -173,8 +175,8 @@ export default function ResidentialPage() {
         <div className="hidden md:block max-w-[960px] mx-auto" style={{ position: "relative", paddingBottom: "40px" }}>
           {/* First photo — left, sits on top */}
           <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[48%] h-[500px] relative z-10" delay={0} />
-          {/* Second photo — offset right with gap below first */}
-          <div style={{ marginTop: "32px", marginLeft: "auto", width: "58%", position: "relative", zIndex: 0 }}>
+          {/* Second photo — offset left, slightly wider than first */}
+          <div style={{ marginTop: "32px", marginLeft: "0", width: "62%", position: "relative", zIndex: 0 }}>
             <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[400px]" delay={0.18} />
           </div>
           <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-right mt-4"
