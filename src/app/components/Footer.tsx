@@ -24,8 +24,9 @@ export default function Footer() {
           <div className="flex flex-wrap gap-12 md:gap-16">
             <div className="flex flex-col gap-3">
               <p className="switz-bold text-[22px] tracking-[0.44px] text-black leading-[48px]">contacts</p>
-              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">EMAIL: blank12@gmail.com</p>
-              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">PHONE: +1 123-456-7890</p>
+              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">EMAIL: Lonestartile1@yahoo.com</p>
+              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">PHONE: (210)789-6361</p>
+              <p className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px]">PHONE: (210)843-9852</p>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -50,8 +51,9 @@ export default function Footer() {
             </Link>
             <div className="mb-6 flex flex-col gap-1">
               <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">contacts</p>
-              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">EMAIL: blank12@gmail.com</p>
-              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">PHONE: +1 123-456-7890</p>
+              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">EMAIL: Lonestartile1@yahoo.com</p>
+              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">PHONE: (210)789-6361</p>
+              <p className="switz-regular text-[12px] tracking-[0.24px] text-black leading-[20px] whitespace-nowrap">PHONE: (210)843-9852</p>
             </div>
           </div>
           <div className="mb-6 mr-[40px] flex-shrink-0">

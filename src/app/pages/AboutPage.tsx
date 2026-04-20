@@ -43,17 +43,17 @@ function WordReveal({ text, className }: { text: string; className?: string }) {
 
 const photoPairs = [
   {
-    img: "https://images.unsplash.com/photo-1666418093542-95ef85253732?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBsYXlpbmclMjB0aWxlJTIwZmxvb3IlMjBpbnN0YWxsYXRpb24lMjB3b3JrZXJ8ZW58MXx8fHwxNzc0NzUwMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    img: "/about-photo-1.png",
     text: "Founded on the principles of craftsmanship and integrity, Lone Star Tile has grown from serving local San Antonio communities to becoming a trusted partner for commercial projects statewide. We've worked alongside general contractors, architects, interior designers, and homeowners to bring countless visions to life—from the professional elegance of major banking institutions' corporate spaces to the intimate beauty of historic district bathroom renovations.",
     reverse: false,
   },
   {
-    img: "https://images.unsplash.com/photo-1616628188540-925618b98318?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aWxlJTIwaW5zdGFsbGVyJTIwc2hvd2luZyUyMGNsaWVudCUyMHRpbGUlMjBzYW1wbGVzfGVufDF8fHx8MTc3NDc1MDE4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+    img: "/about-photo-2.png",
     text: "What truly sets us apart isn't just our technical expertise—though we bring years of combined experience to every project. It's our commitment to being genuine partners in your success. We listen to your vision, offer honest guidance when you need it, and deliver results that exceed expectations.",
     reverse: true,
   },
   {
-    img: "https://images.unsplash.com/photo-1567238563567-b99d8ac66e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aWxlJTIwd29ya2VyJTIwZ3JvdXRpbmclMjBmbG9vciUyMGNvbnN0cnVjdGlvbiUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzQ3NTAxODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    img: "/about-photo-3.png",
     text: "Whether you're a homeowner dreaming of the perfect kitchen backsplash or a general contractor managing a multi-location commercial build, we approach every project with the same dedication to excellence. Our work speaks for itself across the city's most prestigious residential communities and in some of its most recognizable commercial landmarks.",
     reverse: false,
   },
@@ -111,24 +111,48 @@ const pairedCerts = [...certLogos, ...certLogos];
 function InfiniteCertCarousel() {
   return (
     <div className="py-6 w-full">
-      <InfiniteStrip
-        items={certLogos}
-        direction={1}
-        speed={80}
-        gap={60}
-        renderItem={(cert, i) => (
-          <div
-            key={i}
-            style={{ width: 110, height: 70, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
-          >
-            <img
-              src={cert.src}
-              alt={cert.alt}
-              style={{ maxHeight: 60, maxWidth: 100, width: "auto", height: "auto", objectFit: "contain" }}
-            />
-          </div>
-        )}
-      />
+      {/* Mobile */}
+      <div className="md:hidden">
+        <InfiniteStrip
+          items={certLogos}
+          direction={1}
+          speed={80}
+          gap={60}
+          renderItem={(cert, i) => (
+            <div
+              key={i}
+              style={{ width: 110, height: 70, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+              <img
+                src={cert.src}
+                alt={cert.alt}
+                style={{ maxHeight: 60, maxWidth: 100, width: "auto", height: "auto", objectFit: "contain" }}
+              />
+            </div>
+          )}
+        />
+      </div>
+      {/* Desktop — slower, larger */}
+      <div className="hidden md:block">
+        <InfiniteStrip
+          items={certLogos}
+          direction={1}
+          speed={30}
+          gap={120}
+          renderItem={(cert, i) => (
+            <div
+              key={i}
+              style={{ width: 200, height: 130, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+              <img
+                src={cert.src}
+                alt={cert.alt}
+                style={{ maxHeight: 110, maxWidth: 180, width: "auto", height: "auto", objectFit: "contain" }}
+              />
+            </div>
+          )}
+        />
+      </div>
     </div>
   );
 }

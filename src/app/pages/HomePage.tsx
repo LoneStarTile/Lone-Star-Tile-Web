@@ -103,7 +103,7 @@ function ReviewCard({ name, text }: { name: string; text: string }) {
 
 const portfolioImages = [
   {
-    src: "https://images.unsplash.com/photo-1695191388218-f6259600223f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraXRjaGVuJTIwYmFja3NwbGFzaCUyMHRpbGUlMjBtb2Rlcm58ZW58MXx8fHwxNzc0NzQ5MzA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "/kitchen-backsplash.png",
     label: "Custom Kitchen Backsplash",
     size: "large",
   },
@@ -113,7 +113,7 @@ const portfolioImages = [
     size: "tall",
   },
   {
-    src: "https://images.unsplash.com/photo-1719782758766-f0a4a3808afe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB0aWxlJTIwZmxvb3JpbmclMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzQ3NDkzMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    src: "/living-room.png",
     label: "Living Room Remodel",
     size: "wide",
   },
@@ -123,7 +123,7 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
+      <section className="relative w-full overflow-hidden" style={{ height: "100dvh" }}>
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.08 }}
@@ -139,21 +139,23 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/20" />
         </motion.div>
 
-        {/* Scroll hint — center bottom */}
+        {/* Scroll hint */}
         <motion.div
-          className="absolute bottom-20 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          className="absolute bottom-16 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
         >
+          <span className="switz-regular text-[14px] md:text-[16px] text-white tracking-[0.36px]">
+            Scroll Down
+          </span>
           <motion.div
-            className="bg-black/30 backdrop-blur-md px-6 py-2 rounded-[30px] border border-white/20"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <span className="switz-regular text-[16px] md:text-[18px] text-white tracking-[0.36px]">
-              (Scroll Down)
-            </span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </motion.div>
         </motion.div>
       </section>
