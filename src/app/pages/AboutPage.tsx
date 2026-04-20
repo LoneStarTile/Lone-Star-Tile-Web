@@ -212,20 +212,18 @@ export default function AboutPage() {
         >
           {/* Photo side */}
           <motion.div
-            className="w-full md:w-1/2 relative"
-            style={{ backgroundColor: "#d8d0b9", minHeight: "460px" }}
-            initial={{ opacity: 0, x: pair.reverse ? 60 : -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="w-full md:w-1/2 relative overflow-hidden"
+            style={{ backgroundColor: "#d8d0b9", minHeight: "360px" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div style={{ position: "absolute", inset: "20px", overflow: "hidden" }}>
-              <img
-                src={pair.img}
-                alt=""
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
-            </div>
+            <img
+              src={pair.img}
+              alt=""
+              style={{ position: "absolute", inset: "20px", width: "calc(100% - 40px)", height: "calc(100% - 40px)", objectFit: "cover", display: "block" }}
+            />
           </motion.div>
 
           {/* Text side */}

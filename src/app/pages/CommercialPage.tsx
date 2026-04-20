@@ -57,10 +57,10 @@ function ImageReveal({
   return (
     <motion.div
       className={`overflow-hidden relative group ${className}`}
-      initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0.5 }}
-      whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 1.1, delay, ease: [0.76, 0, 0.24, 1] }}
+      initial={{ opacity: 0, scale: 1.03 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.9, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <img
         src={src}
