@@ -87,39 +87,23 @@ function ProjectCard({ title, category, img, points, delay = 0 }: ProjectCardPro
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.9, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      {/* ── Mobile stacked layout ─────────────────────────── */}
-      <div className="md:hidden flex flex-col gap-4">
-        <p className="switz-bold text-[22px] text-black tracking-[0.44px] leading-[1.3]">{title}</p>
-        <ImageReveal src={img} alt={title} className="w-full h-[420px]" delay={delay + 0.1} />
-        <p className="switz-bold text-[18px] text-black tracking-[0.36px] leading-[1.3]">{category}</p>
-        <div className="flex flex-col">
-          {points.map((point, i) => (
-            <div
-              key={i}
-              className={`py-3 border-t-2 border-black ${i === points.length - 1 ? "border-b-2" : ""}`}
-            >
-              <p className="switz-regular text-[15px] text-black tracking-[0.3px] leading-[1.5]">{point}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* ── Desktop side-by-side layout ───────────────────── */}
-      <div className="hidden md:flex gap-2 items-end">
-        {/* Left: project title above the photo */}
+      {/* ── Stacked on mobile, side-by-side on desktop ────── */}
+      <div className="flex flex-col gap-4 md:flex-row md:gap-6 md:items-end">
+        {/* Left / top: title + photo */}
         <div className="flex flex-col flex-1 min-w-0">
-          <p className="switz-bold text-[32px] text-black tracking-[0.64px] leading-[48px] mb-0">{title}</p>
-          <ImageReveal src={img} alt={title} className="h-[562px] w-full" delay={delay + 0.1} />
+          <p className="switz-bold text-[22px] md:text-[32px] text-black tracking-[0.44px] md:tracking-[0.64px] leading-[1.3] md:leading-[48px] mb-2 md:mb-0">{title}</p>
+          <ImageReveal src={img} alt={title} className="w-full aspect-[4/3] md:aspect-auto md:h-[562px]" delay={delay + 0.1} />
         </div>
-        {/* Right: category label + bordered bullet points, pinned to bottom */}
-        <div className="w-[357px] flex-shrink-0 flex flex-col gap-[27px]">
-          <p className="switz-bold text-[32px] text-black tracking-[0.64px] leading-[48px]">{category}</p>
+        {/* Right / bottom: category + bullet points */}
+        <div className="flex flex-col gap-4 md:gap-[27px] w-full md:w-[320px] lg:w-[357px] md:flex-shrink-0">
+          <p className="switz-bold text-[18px] md:text-[32px] text-black tracking-[0.36px] md:tracking-[0.64px] leading-[1.3] md:leading-[48px]">{category}</p>
           <div className="flex flex-col">
             {points.map((point, i) => (
               <div
                 key={i}
                 className={`py-3 border-t-2 border-black ${i === points.length - 1 ? "border-b-2" : ""}`}
               >
-                <p className="switz-regular text-[20px] text-black tracking-[0.4px] leading-[1.5]">{point}</p>
+                <p className="switz-regular text-[15px] md:text-[20px] text-black tracking-[0.3px] md:tracking-[0.4px] leading-[1.5]">{point}</p>
               </div>
             ))}
           </div>

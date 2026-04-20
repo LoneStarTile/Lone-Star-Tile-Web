@@ -123,97 +123,37 @@ export default function ResidentialPage() {
 
       {/* ── CUSTOM KITCHEN ───────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
-        {/* Desktop */}
-        <div className="hidden md:block max-w-[1200px]">
-          <motion.div
-            className="flex gap-6 items-end mb-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="flex-1 h-[565px]" delay={0} />
-          </motion.div>
-          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
+        <div className="flex flex-col gap-3 max-w-[1200px]">
+          <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="w-full aspect-[16/9]" delay={0} />
+          <motion.p className="switz-regular text-[14px] md:text-[22px] text-black tracking-[0.44px]"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}>
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
             Custom Kitchen
           </motion.p>
-        </div>
-        {/* Mobile */}
-        <div className="md:hidden flex flex-col gap-2">
-          <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="w-full h-[255px]" delay={0} />
-          <div className="flex items-start justify-between pt-1">
-            <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] w-[92px]"
-              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}>
-              Custom Kitchen
-            </motion.p>
-          </div>
         </div>
       </section>
 
       {/* ── LIVING ROOM REMODEL ──────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
-        {/* Desktop */}
-        <div className="hidden md:block max-w-[1200px] ml-auto">
-          <motion.div
-            className="flex flex-col gap-6 items-end"
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[640px] h-[550px]" delay={0} />
-            <div className="flex gap-6 items-start w-[850px]">
-              <ImageReveal src={imgRectangle14} alt="Living Room detail" className="flex-1 h-[460px]" delay={0.15} />
-            </div>
-            <motion.p className="w-[850px] switz-regular text-[22px] text-black tracking-[0.44px] text-left"
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}>
-              Living Room Remodel
-            </motion.p>
-          </motion.div>
-        </div>
-        {/* Mobile */}
-        <div className="md:hidden flex flex-col gap-2">
-          <ImageReveal src={imgRectangle13} alt="Living Room" className="w-full h-[211px]" delay={0} />
-          <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full h-[216px]" delay={0.1} />
-          <div className="flex items-start justify-between pt-1">
-            <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] w-[123px] text-right"
-              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}>
-              Living Room Remodel
-            </motion.p>
-          </div>
+        <div className="flex flex-col gap-4 max-w-[1200px] ml-auto">
+          <ImageReveal src={imgRectangle13} alt="Living Room" className="w-full aspect-[4/3]" delay={0} />
+          <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full aspect-[4/3]" delay={0.15} />
+          <motion.p className="switz-regular text-[14px] md:text-[22px] text-black tracking-[0.44px]"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
+            Living Room Remodel
+          </motion.p>
         </div>
       </section>
 
       {/* ── MASTER BATHROOM ──────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
-        {/* Desktop */}
-        <div className="hidden md:block max-w-[960px] mx-auto">
-          <div className="flex flex-col gap-8">
-            <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[427px] h-[477px]" delay={0} />
-            <div className="flex gap-8 items-start">
-              <div className="flex flex-col gap-3 w-[520px] flex-shrink-0">
-                <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[358px]" delay={0.15} />
-                <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-right"
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}>
-                  Master Bathroom Renovation
-                </motion.p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Mobile */}
-        <div className="md:hidden flex flex-col gap-2">
-          <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-full h-[233px]" delay={0} />
-          <div className="flex gap-2 items-start">
-            <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-[231px] h-[199px] flex-shrink-0" delay={0.1} />
-          </div>
-          <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] w-full"
-            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}>
+        <div className="flex flex-col gap-4 max-w-[960px] mx-auto">
+          <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-full md:w-1/2 aspect-square" delay={0} />
+          <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full aspect-[3/2]" delay={0.15} />
+          <motion.p className="switz-regular text-[14px] md:text-[22px] text-black tracking-[0.44px]"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
             Master Bathroom Renovation
           </motion.p>
         </div>
@@ -221,27 +161,13 @@ export default function ResidentialPage() {
 
       {/* ── MODERN BACKSPLASH ────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
-        {/* Desktop */}
-        <div className="hidden md:block max-w-[1000px]">
-          <div className="flex gap-6 items-end mb-4">
-            <ImageReveal src={imgRectangle17} alt="Modern Backsplash" className="flex-1 h-[514px]" delay={0} />
-          </div>
-          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-left"
+        <div className="flex flex-col gap-3 max-w-[1000px]">
+          <ImageReveal src={imgRectangle17} alt="Modern Backsplash" className="w-full aspect-[16/9]" delay={0} />
+          <motion.p className="switz-regular text-[14px] md:text-[22px] text-black tracking-[0.44px]"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}>
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
             Modern Backsplash
           </motion.p>
-        </div>
-        {/* Mobile */}
-        <div className="md:hidden flex flex-col gap-2">
-          <ImageReveal src={imgRectangle17} alt="Modern Backsplash" className="w-full h-[268px]" delay={0} />
-          <div className="flex items-start justify-between pt-1">
-            <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] whitespace-nowrap"
-              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}>
-              Modern Backsplash
-            </motion.p>
-          </div>
         </div>
       </section>
 
