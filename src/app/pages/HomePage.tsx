@@ -103,7 +103,7 @@ function ReviewCard({ name, text }: { name: string; text: string }) {
 
 const portfolioImages = [
   {
-    src: "/kitchen-backsplash.png",
+    src: "/kitchen-backsplash.webp",
     label: "Custom Kitchen Backsplash",
     size: "large",
   },
@@ -113,7 +113,7 @@ const portfolioImages = [
     size: "tall",
   },
   {
-    src: "/living-room.png",
+    src: "/living-room.webp",
     label: "Living Room Remodel",
     size: "wide",
   },
@@ -141,22 +141,18 @@ export default function HomePage() {
 
         {/* Scroll hint */}
         <motion.div
-          className="absolute bottom-16 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
+          className="absolute bottom-16 md:bottom-10 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
         >
-          <span className="switz-regular text-[14px] md:text-[16px] text-white tracking-[0.36px]">
-            Scroll Down
-          </span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          <motion.p
+            className="switz-regular text-[18px] text-white tracking-[0.36px] opacity-60"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </motion.div>
+            (Scroll Down)
+          </motion.p>
         </motion.div>
       </section>
 

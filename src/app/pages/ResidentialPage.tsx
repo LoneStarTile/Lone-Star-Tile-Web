@@ -133,7 +133,6 @@ export default function ResidentialPage() {
             transition={{ duration: 0.5 }}
           >
             <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="flex-1 h-[565px]" delay={0} />
-            <div className="w-[200px] h-[200px] bg-[#d9d9d9] flex-shrink-0" />
           </motion.div>
           <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -150,7 +149,6 @@ export default function ResidentialPage() {
               transition={{ duration: 0.6, delay: 0.2 }}>
               Custom Kitchen
             </motion.p>
-            <div className="w-[100px] h-[100px] bg-[#d9d9d9] flex-shrink-0" />
           </div>
         </div>
       </section>
@@ -167,7 +165,6 @@ export default function ResidentialPage() {
             <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[640px] h-[550px]" delay={0} />
             <div className="flex gap-6 items-start w-[850px]">
               <ImageReveal src={imgRectangle14} alt="Living Room detail" className="flex-1 h-[460px]" delay={0.15} />
-              <div className="w-[200px] h-[200px] bg-[#d9d9d9] flex-shrink-0" />
             </div>
             <motion.p className="w-[850px] switz-regular text-[22px] text-black tracking-[0.44px] text-left"
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -181,7 +178,6 @@ export default function ResidentialPage() {
           <ImageReveal src={imgRectangle13} alt="Living Room" className="w-full h-[211px]" delay={0} />
           <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full h-[216px]" delay={0.1} />
           <div className="flex items-start justify-between pt-1">
-            <div className="w-[100px] h-[100px] bg-[#d9d9d9] flex-shrink-0" />
             <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] w-[123px] text-right"
               initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}>
@@ -198,7 +194,6 @@ export default function ResidentialPage() {
           <div className="flex flex-col gap-8">
             <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[427px] h-[477px]" delay={0} />
             <div className="flex gap-8 items-start">
-              <div className="w-[249px] h-[224px] bg-[#d9d9d9] flex-shrink-0" />
               <div className="flex flex-col gap-3 w-[520px] flex-shrink-0">
                 <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[358px]" delay={0.15} />
                 <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-right"
@@ -215,7 +210,6 @@ export default function ResidentialPage() {
           <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-full h-[233px]" delay={0} />
           <div className="flex gap-2 items-start">
             <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-[231px] h-[199px] flex-shrink-0" delay={0.1} />
-            <div className="w-[100px] h-[100px] bg-[#d9d9d9] flex-shrink-0" />
           </div>
           <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] w-full"
             initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -231,7 +225,6 @@ export default function ResidentialPage() {
         <div className="hidden md:block max-w-[1000px]">
           <div className="flex gap-6 items-end mb-4">
             <ImageReveal src={imgRectangle17} alt="Modern Backsplash" className="flex-1 h-[514px]" delay={0} />
-            <div className="w-[200px] h-[200px] bg-[#d9d9d9] flex-shrink-0" />
           </div>
           <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-left"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -243,7 +236,6 @@ export default function ResidentialPage() {
         <div className="md:hidden flex flex-col gap-2">
           <ImageReveal src={imgRectangle17} alt="Modern Backsplash" className="w-full h-[268px]" delay={0} />
           <div className="flex items-start justify-between pt-1">
-            <div className="w-[100px] h-[100px] bg-[#d9d9d9] flex-shrink-0" />
             <motion.p className="switz-regular text-[12px] text-black tracking-[0.24px] whitespace-nowrap"
               initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}>

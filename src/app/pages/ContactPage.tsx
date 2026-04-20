@@ -61,7 +61,7 @@ export default function ContactPage() {
             <div className="flex flex-col gap-2">
               <p className="switz-bold text-[26px] md:text-[32px] text-black tracking-[0.64px] leading-[48px]">Email</p>
               <p className="switz-regular text-[14px] md:text-[16px] text-black tracking-[0.32px] leading-[36px]">
-                EMAIL: blank12@gmail.com
+                Lonestartile1@yahoo.com
               </p>
             </div>
 
@@ -69,7 +69,10 @@ export default function ContactPage() {
             <div className="flex flex-col gap-2">
               <p className="switz-bold text-[26px] md:text-[32px] text-black tracking-[0.64px] leading-[48px]">Phone</p>
               <p className="switz-regular text-[14px] md:text-[16px] text-black tracking-[0.32px] leading-[36px]">
-                +1 123-456-7890
+                (210) 789-6361
+              </p>
+              <p className="switz-regular text-[14px] md:text-[16px] text-black tracking-[0.32px] leading-[36px]">
+                (210) 843-9852
               </p>
             </div>
 

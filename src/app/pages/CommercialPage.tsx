@@ -267,7 +267,7 @@ export default function CommercialPage() {
           <ProjectCard
             title="Circle K"
             category="Retail"
-            img="/circle-k.png"
+            img="/circle-k.webp"
             points={[
               "Rapid turnaround for remodels",
               "Consistent installation across locations",

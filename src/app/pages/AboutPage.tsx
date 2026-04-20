@@ -43,17 +43,17 @@ function WordReveal({ text, className }: { text: string; className?: string }) {
 
 const photoPairs = [
   {
-    img: "/about-photo-1.png",
+    img: "/about-photo-1.webp",
     text: "Founded on the principles of craftsmanship and integrity, Lone Star Tile has grown from serving local San Antonio communities to becoming a trusted partner for commercial projects statewide. We've worked alongside general contractors, architects, interior designers, and homeowners to bring countless visions to life—from the professional elegance of major banking institutions' corporate spaces to the intimate beauty of historic district bathroom renovations.",
     reverse: false,
   },
   {
-    img: "/about-photo-2.png",
+    img: "/about-photo-2.webp",
     text: "What truly sets us apart isn't just our technical expertise—though we bring years of combined experience to every project. It's our commitment to being genuine partners in your success. We listen to your vision, offer honest guidance when you need it, and deliver results that exceed expectations.",
     reverse: true,
   },
   {
-    img: "/about-photo-3.png",
+    img: "/about-photo-3.webp",
     text: "Whether you're a homeowner dreaming of the perfect kitchen backsplash or a general contractor managing a multi-location commercial build, we approach every project with the same dedication to excellence. Our work speaks for itself across the city's most prestigious residential communities and in some of its most recognizable commercial landmarks.",
     reverse: false,
   },

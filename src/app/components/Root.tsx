@@ -26,7 +26,9 @@ export default function Root() {
   return (
     <div style={{ minHeight: "100dvh" }}>
       <NavBar isTransparent={isTransparent} />
-      <Outlet />
+      <div key={location.pathname}>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
