@@ -145,15 +145,33 @@ export default function ResidentialPage() {
 
       {/* ── LIVING ROOM REMODEL ──────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
-        {/* Desktop */}
-        <div className="hidden md:flex flex-col gap-6 items-end max-w-[1200px] ml-auto">
-          <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[60%] h-[550px]" delay={0} />
-          <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full h-[460px]" delay={0.15} />
-          <motion.p className="w-full switz-regular text-[22px] text-black tracking-[0.44px] text-left"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
-            Living Room Remodel
-          </motion.p>
+        {/* Desktop — side-by-side: tall main left, shorter accent right */}
+        <div className="hidden md:flex items-end gap-6 max-w-[1200px] ml-auto" style={{ height: 580 }}>
+          {/* Left — dominant image fills full height */}
+          <ImageReveal
+            src={imgRectangle13}
+            alt="Living Room"
+            className="flex-1 h-full"
+            delay={0}
+          />
+          {/* Right — accent image shorter + caption anchored to bottom */}
+          <div className="w-[36%] flex flex-col justify-end gap-4 h-full">
+            <ImageReveal
+              src={imgRectangle14}
+              alt="Living Room detail"
+              className="w-full h-[360px]"
+              delay={0.18}
+            />
+            <motion.p
+              className="switz-regular text-[22px] text-black tracking-[0.44px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.7, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              Living Room Remodel
+            </motion.p>
+          </div>
         </div>
         {/* Mobile */}
         <div className="md:hidden flex flex-col gap-2">
