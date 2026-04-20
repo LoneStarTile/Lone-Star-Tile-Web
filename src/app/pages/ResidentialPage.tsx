@@ -124,9 +124,9 @@ export default function ResidentialPage() {
       {/* ── CUSTOM KITCHEN ───────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
         {/* Desktop */}
-        <div className="hidden md:flex flex-col gap-4 max-w-[1200px]">
-          <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="w-full h-[565px]" delay={0} />
-          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
+        <div className="hidden md:flex flex-col gap-4 items-end">
+          <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="w-[78%] h-[565px]" delay={0} />
+          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] w-[78%] text-left"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
             Custom Kitchen
@@ -146,7 +146,7 @@ export default function ResidentialPage() {
       {/* ── LIVING ROOM REMODEL ──────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
         {/* Desktop — stacked, bottom photo wider, text under left edge of bottom photo */}
-        <div className="hidden md:flex flex-col gap-6 items-end max-w-[1200px] ml-auto">
+        <div className="hidden md:flex flex-col gap-6 items-end">
           <ImageReveal src={imgRectangle13} alt="Living Room" className="w-[58%] h-[550px]" delay={0} />
           <div className="flex flex-col gap-3 w-[68%]">
             <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full h-[420px]" delay={0.15} />
@@ -172,11 +172,11 @@ export default function ResidentialPage() {
       {/* ── MASTER BATHROOM ──────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
         {/* Desktop — semi-stacked with offset */}
-        <div className="hidden md:block max-w-[960px] mx-auto" style={{ position: "relative", paddingBottom: "40px" }}>
+        <div className="hidden md:block" style={{ position: "relative", paddingBottom: "40px" }}>
           {/* First photo — left, wider */}
-          <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[62%] h-[500px] relative z-10" delay={0} />
+          <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[72%] h-[500px] relative z-10" delay={0} />
           {/* Second photo + caption — wider, text under right edge */}
-          <div style={{ marginTop: "32px", marginLeft: "0", width: "75%", position: "relative", zIndex: 0 }} className="flex flex-col gap-3">
+          <div style={{ marginTop: "32px", marginLeft: "0", width: "85%", position: "relative", zIndex: 0 }} className="flex flex-col gap-3">
             <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[420px]" delay={0.18} />
             <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-right"
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
@@ -200,7 +200,7 @@ export default function ResidentialPage() {
       {/* ── MODERN BACKSPLASH ────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-16 md:pb-20">
         {/* Desktop */}
-        <div className="hidden md:flex flex-col gap-4 max-w-[1000px]">
+        <div className="hidden md:flex flex-col gap-4">
           <ImageReveal src={imgRectangle17} alt="Modern Backsplash" className="w-full h-[514px]" delay={0} />
           <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}

@@ -147,7 +147,7 @@ export default function HomePage() {
           transition={{ duration: 0.8, delay: 1.5 }}
         >
           <motion.p
-            className="switz-regular text-[18px] text-white tracking-[0.36px] opacity-60"
+            className="switz-regular text-[18px] text-white tracking-[0.36px]"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
