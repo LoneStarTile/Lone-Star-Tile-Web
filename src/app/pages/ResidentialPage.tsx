@@ -173,8 +173,8 @@ export default function ResidentialPage() {
         <div className="hidden md:block max-w-[960px] mx-auto" style={{ position: "relative", paddingBottom: "40px" }}>
           {/* First photo — left, sits on top */}
           <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[48%] h-[500px] relative z-10" delay={0} />
-          {/* Second photo — offset right and down, tucked behind/beside */}
-          <div style={{ marginTop: "-220px", marginLeft: "auto", width: "58%", position: "relative", zIndex: 0 }}>
+          {/* Second photo — offset right with gap below first */}
+          <div style={{ marginTop: "32px", marginLeft: "auto", width: "58%", position: "relative", zIndex: 0 }}>
             <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[400px]" delay={0.18} />
           </div>
           <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-right mt-4"
