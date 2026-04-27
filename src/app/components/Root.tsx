@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
+import { motion } from "framer-motion";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
@@ -13,9 +14,16 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Reset scroll on page change
+  // useLayoutEffect fires synchronously BEFORE the browser paints, so the
+  // scroll position is already 0 when Framer Motion's IntersectionObserver
+  // first checks element visibility on the new page. This prevents whileInView
+  // animations from firing immediately for elements that happen to be inside
+  // the old page's scroll offset.
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   useEffect(() => {
-    window.scrollTo({ top: 0 });
     setScrollY(0);
   }, [location.pathname]);
 
@@ -26,9 +34,14 @@ export default function Root() {
   return (
     <div style={{ minHeight: "100dvh" }}>
       <NavBar isTransparent={isTransparent} />
-      <div key={location.pathname}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         <Outlet />
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );
