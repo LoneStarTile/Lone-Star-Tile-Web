@@ -1,21 +1,15 @@
-import { useOutlet, useLocation } from "react-router";
-import { useState, useEffect, useRef } from "react";
+import { Outlet, useLocation } from "react-router";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 export default function Root() {
   const location = useLocation();
-  const currentOutlet = useOutlet();
-
-  // outletRef always holds the latest outlet element from React Router
-  const outletRef = useRef(currentOutlet);
-  outletRef.current = currentOutlet;
-
-  // page.outlet is the *displayed* content — updated only AFTER scroll is reset
-  const [page, setPage] = useState({ outlet: currentOutlet, key: location.pathname });
+  // pageKey is updated inside useLayoutEffect so the key change and the scroll
+  // reset both happen before the browser ever paints the new page.
+  const [pageKey, setPageKey] = useState(location.pathname);
   const [scrollY, setScrollY] = useState(0);
-  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -23,21 +17,15 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // 1. Scroll to top immediately — this is synchronous
+  // useLayoutEffect fires synchronously after React commits the DOM but BEFORE
+  // the browser paints.  By resetting scroll and updating the key here, the
+  // browser's first paint of the new page is always at scroll = 0, so Framer
+  // Motion's IntersectionObserver is initialised with the viewport at the top
+  // and every whileInView animation is guaranteed to be fresh.
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
     setScrollY(0);
-
-    // 2. One animation frame later, swap in the new page content.
-    //    By the time the RAF fires, the browser has already committed
-    //    the scrollY=0 position, so Framer Motion's IntersectionObserver
-    //    is created with the viewport starting at the top of the page.
-    cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(() => {
-      setPage({ outlet: outletRef.current, key: location.pathname });
-    });
-
-    return () => cancelAnimationFrame(rafRef.current);
+    setPageKey(location.pathname);
   }, [location.pathname]);
 
   const isHome = location.pathname === "/";
@@ -48,12 +36,12 @@ export default function Root() {
     <div style={{ minHeight: "100dvh" }}>
       <NavBar isTransparent={isTransparent} />
       <motion.div
-        key={page.key}
+        key={pageKey}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        {page.outlet}
+        <Outlet />
       </motion.div>
       <Footer />
     </div>
