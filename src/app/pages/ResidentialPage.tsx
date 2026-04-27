@@ -183,12 +183,12 @@ export default function ResidentialPage() {
 
       {/* ── MASTER BATHROOM ──────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-20 md:pb-28">
-        {/* Desktop — grid: shorter right image self-end so both bottoms align,
-            label in row 2 directly under the dominant left portrait */}
-        <div className="hidden md:grid gap-x-10 gap-y-4" style={{ gridTemplateColumns: "44% 1fr" }}>
+        {/* Desktop — 3-col grid: portrait | shorter image (self-end) | label (self-end)
+            All three bottoms land on the same line; label sits to the right of the right photo */}
+        <div className="hidden md:grid gap-x-8" style={{ gridTemplateColumns: "44% 1fr auto" }}>
           <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-full h-[580px]" delay={0} />
           <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[390px] self-end" delay={0.2} />
-          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
+          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] self-end pb-1"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
             Master Bathroom Renovation

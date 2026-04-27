@@ -17,12 +17,13 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Update the page key synchronously before the browser paints so the new
-  // page always mounts fresh (resetting all Framer Motion whileInView state).
-  // We intentionally do NOT force-scroll here — the browser stays at its
-  // current position so the user can scroll down at their own pace and
-  // experience every animation as they go.
+  // Scroll to top and remount the page before the browser paints.
+  // No page-level fade transition — the page appears instantly at the top
+  // so the user sees a clean start and scroll-triggered animations only
+  // fire as they scroll down.
   useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    setScrollY(0);
     setPageKey(location.pathname);
   }, [location.pathname]);
 
@@ -33,14 +34,9 @@ export default function Root() {
   return (
     <div style={{ minHeight: "100dvh" }}>
       <NavBar isTransparent={isTransparent} />
-      <motion.div
-        key={pageKey}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
+      <div key={pageKey}>
         <Outlet />
-      </motion.div>
+      </div>
       <Footer />
     </div>
   );
