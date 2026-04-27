@@ -281,14 +281,10 @@ export default function HomePage() {
 
             {/* Photo 1 — large, center-left */}
             <div className="flex flex-col gap-3" style={{ width: "52%", marginLeft: "18%" }}>
-              <motion.div
-                className="overflow-hidden"
-                initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-                whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
-              >
-                <img src={portfolioImages[0].src} alt={portfolioImages[0].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
+              <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] } } }}>
+                  <img src={portfolioImages[0].src} alt={portfolioImages[0].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
+                </motion.div>
               </motion.div>
               <motion.p className="switz-regular text-[18px] text-black tracking-[0.36px]"
                 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
@@ -299,14 +295,10 @@ export default function HomePage() {
 
             {/* Photo 2 — medium, right */}
             <div className="flex flex-col gap-3" style={{ width: "40%", marginLeft: "52%", marginTop: "80px" }}>
-              <motion.div
-                className="overflow-hidden"
-                initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-                whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 1.1, delay: 0.12, ease: [0.76, 0, 0.24, 1] }}
-              >
-                <img src={portfolioImages[1].src} alt={portfolioImages[1].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
+              <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, delay: 0.12, ease: [0.76, 0, 0.24, 1] } } }}>
+                  <img src={portfolioImages[1].src} alt={portfolioImages[1].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
+                </motion.div>
               </motion.div>
               <motion.p className="switz-regular text-[18px] text-black tracking-[0.36px]"
                 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
@@ -317,14 +309,10 @@ export default function HomePage() {
 
             {/* Photo 3 — wide, left */}
             <div className="flex flex-col gap-3" style={{ width: "55%", marginLeft: "10%", marginTop: "80px" }}>
-              <motion.div
-                className="overflow-hidden"
-                initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-                whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 1.1, delay: 0.22, ease: [0.76, 0, 0.24, 1] }}
-              >
-                <img src={portfolioImages[2].src} alt={portfolioImages[2].label} className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700" />
+              <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, delay: 0.22, ease: [0.76, 0, 0.24, 1] } } }}>
+                  <img src={portfolioImages[2].src} alt={portfolioImages[2].label} className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700" />
+                </motion.div>
               </motion.div>
               <motion.p className="switz-regular text-[18px] text-black tracking-[0.36px]"
                 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}

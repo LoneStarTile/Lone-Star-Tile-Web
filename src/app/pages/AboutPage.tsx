@@ -210,17 +210,24 @@ export default function AboutPage() {
           key={i}
           className={`flex flex-col ${pair.reverse ? "md:flex-row-reverse" : "md:flex-row"}`}
         >
-          {/* Photo side */}
-          <div
+          {/* Photo side — outer div is the IntersectionObserver target (always visible);
+              inner motion.div runs the clipPath wipe via variants */}
+          <motion.div
             className="w-full md:w-1/2 relative overflow-hidden"
             style={{ backgroundColor: "#d8d0b9", minHeight: "360px" }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div
               style={{ position: "absolute", inset: "20px" }}
-              initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+              variants={{
+                hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+                visible: {
+                  clipPath: "inset(0% 0% 0% 0%)",
+                  transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] },
+                },
+              }}
             >
               <img
                 src={pair.img}
@@ -228,7 +235,7 @@ export default function AboutPage() {
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Text side */}
           <motion.div

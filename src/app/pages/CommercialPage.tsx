@@ -57,16 +57,26 @@ function ImageReveal({
   return (
     <motion.div
       className={`overflow-hidden relative group ${className}`}
-      initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-      whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 1.1, delay, ease: [0.76, 0, 0.24, 1] }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
     >
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-      />
+      <motion.div
+        className="w-full h-full"
+        variants={{
+          hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+          visible: {
+            clipPath: "inset(0% 0% 0% 0%)",
+            transition: { duration: 1.1, delay, ease: [0.76, 0, 0.24, 1] },
+          },
+        }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+      </motion.div>
     </motion.div>
   );
 }
