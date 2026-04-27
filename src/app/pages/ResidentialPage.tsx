@@ -160,17 +160,16 @@ export default function ResidentialPage() {
 
       {/* ── LIVING ROOM REMODEL ──────────────────────────────── */}
       <section className="px-8 md:px-16 pb-20 md:pb-28">
-        {/* Desktop — small image + label on left, dominant image on right */}
-        <div className="hidden md:flex flex-row items-end gap-10">
-          <div className="flex flex-col gap-4" style={{ width: "36%", flexShrink: 0 }}>
-            <ImageReveal src={imgRectangle13} alt="Living Room" className="w-full h-[320px]" delay={0.2} />
-            <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
-              Living Room Remodel
-            </motion.p>
-          </div>
-          <ImageReveal src={imgRectangle14} alt="Living Room detail" className="flex-1 h-[520px]" delay={0} />
+        {/* Desktop — grid: small image self-end so both image bottoms align,
+            label in row 2 directly under the tall right image */}
+        <div className="hidden md:grid gap-x-10 gap-y-4" style={{ gridTemplateColumns: "36% 1fr" }}>
+          <ImageReveal src={imgRectangle13} alt="Living Room" className="w-full h-[320px] self-end" delay={0.2} />
+          <ImageReveal src={imgRectangle14} alt="Living Room detail" className="w-full h-[520px]" delay={0} />
+          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] col-start-2"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
+            Living Room Remodel
+          </motion.p>
         </div>
         {/* Mobile */}
         <div className="md:hidden flex flex-col gap-2">
@@ -186,17 +185,16 @@ export default function ResidentialPage() {
 
       {/* ── MASTER BATHROOM ──────────────────────────────────── */}
       <section className="px-8 md:px-16 pb-20 md:pb-28">
-        {/* Desktop — tall portrait left, shorter landscape right with label beneath */}
-        <div className="hidden md:flex flex-row items-end gap-10">
-          <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-[44%] h-[580px] flex-shrink-0" delay={0} />
-          <div className="flex flex-col gap-4 flex-1">
-            <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[390px]" delay={0.2} />
-            <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px] text-right"
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
-              Master Bathroom Renovation
-            </motion.p>
-          </div>
+        {/* Desktop — grid: shorter right image self-end so both bottoms align,
+            label in row 2 directly under the dominant left portrait */}
+        <div className="hidden md:grid gap-x-10 gap-y-4" style={{ gridTemplateColumns: "44% 1fr" }}>
+          <ImageReveal src={imgRectangle16} alt="Master Bathroom" className="w-full h-[580px]" delay={0} />
+          <ImageReveal src={imgRectangle15} alt="Bathroom detail" className="w-full h-[390px] self-end" delay={0.2} />
+          <motion.p className="switz-regular text-[22px] text-black tracking-[0.44px]"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
+            Master Bathroom Renovation
+          </motion.p>
         </div>
         {/* Mobile */}
         <div className="md:hidden flex flex-col gap-2">
