@@ -17,14 +17,12 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // useLayoutEffect fires synchronously after React commits the DOM but BEFORE
-  // the browser paints.  By resetting scroll and updating the key here, the
-  // browser's first paint of the new page is always at scroll = 0, so Framer
-  // Motion's IntersectionObserver is initialised with the viewport at the top
-  // and every whileInView animation is guaranteed to be fresh.
+  // Update the page key synchronously before the browser paints so the new
+  // page always mounts fresh (resetting all Framer Motion whileInView state).
+  // We intentionally do NOT force-scroll here — the browser stays at its
+  // current position so the user can scroll down at their own pace and
+  // experience every animation as they go.
   useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-    setScrollY(0);
     setPageKey(location.pathname);
   }, [location.pathname]);
 
