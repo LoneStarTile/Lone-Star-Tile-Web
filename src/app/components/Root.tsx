@@ -1,15 +1,14 @@
 import { Outlet, useLocation } from "react-router";
-import { useState, useEffect, useLayoutEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 export default function Root() {
   const location = useLocation();
-  // pageKey is updated inside useLayoutEffect so the key change and the scroll
-  // reset both happen before the browser ever paints the new page.
   const [pageKey, setPageKey] = useState(location.pathname);
+  const [visible, setVisible] = useState(true);
   const [scrollY, setScrollY] = useState(0);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -17,14 +16,24 @@ export default function Root() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll to top and remount the page before the browser paints.
-  // No page-level fade transition — the page appears instantly at the top
-  // so the user sees a clean start and scroll-triggered animations only
-  // fire as they scroll down.
   useLayoutEffect(() => {
+    // Step 1 (synchronous, before paint): hide the current page and snap scroll
+    // to top.  The browser paints a blank frame — imperceptible at 60 fps.
+    setVisible(false);
     window.scrollTo(0, 0);
     setScrollY(0);
-    setPageKey(location.pathname);
+
+    // Step 2 (after one frame): swap in the new page.  By this point the
+    // browser has committed scroll = 0, so Framer Motion's IntersectionObserver
+    // initialises at the true top of the page and whileInView animations are
+    // completely fresh — firing only as the user scrolls down.
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      setPageKey(location.pathname);
+      setVisible(true);
+    });
+
+    return () => cancelAnimationFrame(rafRef.current);
   }, [location.pathname]);
 
   const isHome = location.pathname === "/";
@@ -34,7 +43,7 @@ export default function Root() {
   return (
     <div style={{ minHeight: "100dvh" }}>
       <NavBar isTransparent={isTransparent} />
-      <div key={pageKey}>
+      <div key={pageKey} style={{ visibility: visible ? "visible" : "hidden" }}>
         <Outlet />
       </div>
       <Footer />
