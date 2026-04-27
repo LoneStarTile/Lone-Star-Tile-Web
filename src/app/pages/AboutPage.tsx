@@ -211,20 +211,24 @@ export default function AboutPage() {
           className={`flex flex-col ${pair.reverse ? "md:flex-row-reverse" : "md:flex-row"}`}
         >
           {/* Photo side */}
-          <motion.div
+          <div
             className="w-full md:w-1/2 relative overflow-hidden"
             style={{ backgroundColor: "#d8d0b9", minHeight: "360px" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <img
-              src={pair.img}
-              alt=""
-              style={{ position: "absolute", inset: "20px", width: "calc(100% - 40px)", height: "calc(100% - 40px)", objectFit: "cover", display: "block" }}
-            />
-          </motion.div>
+            <motion.div
+              style={{ position: "absolute", inset: "20px" }}
+              initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
+              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            >
+              <img
+                src={pair.img}
+                alt=""
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </motion.div>
+          </div>
 
           {/* Text side */}
           <motion.div
