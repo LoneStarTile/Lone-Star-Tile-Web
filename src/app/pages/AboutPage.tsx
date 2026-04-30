@@ -220,12 +220,12 @@ export default function AboutPage() {
             viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div
-              style={{ position: "absolute", inset: "20px" }}
+              style={{ position: "absolute", inset: "20px", willChange: "transform" }}
               variants={{
-                hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+                hidden: { y: "35%" },
                 visible: {
-                  clipPath: "inset(0% 0% 0% 0%)",
-                  transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] },
+                  y: "0%",
+                  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
             >

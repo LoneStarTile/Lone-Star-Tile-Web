@@ -136,7 +136,7 @@ export default function NavBar({ isTransparent }: NavBarProps) {
                       onClick={() => setMenuOpen(false)}
                       className="flex items-center justify-center py-5 group w-full"
                     >
-                      <span className="cab-black text-[44px] tracking-[-1.5px] leading-none text-black group-hover:text-[#c1272d] transition-colors duration-300">
+                      <span className="cab-black text-[44px] tracking-[-1.5px] leading-none text-black group-hover:text-black/80 transition-colors duration-300">
                         {link.label}
                       </span>
                     </Link>

@@ -16,11 +16,11 @@ const fadeUp = {
 };
 
 const imageReveal = {
-  hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0.6 },
+  hidden: { y: "30%", opacity: 0.85 },
   visible: {
-    clipPath: "inset(0% 0% 0% 0%)",
+    y: "0%",
     opacity: 1,
-    transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -28,6 +28,40 @@ const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
+
+function RevealImage({
+  src,
+  alt,
+  className,
+  delay = 0,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      className={`overflow-hidden ${className || ""}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.08 }}
+    >
+      <motion.img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover [will-change:transform]"
+        variants={{
+          hidden: { y: "35%" },
+          visible: {
+            y: "0%",
+            transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
+          },
+        }}
+      />
+    </motion.div>
+  );
+}
 
 function WordReveal({ text, className }: { text: string; className?: string }) {
   const words = text.split(" ");
@@ -123,21 +157,14 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section
-        className="relative w-full overflow-hidden"
-        style={{ minHeight: "100vh", height: "100vh" }}
-      >
+      <section className="relative w-full overflow-hidden min-h-[126vh] h-[126vh] md:min-h-[100vh] md:h-[100vh]">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <img
-            src={imgPhoto}
-            alt="Lone Star Tile hero"
-            className="w-full h-full object-cover"
-          />
+          <RevealImage src={imgPhoto} alt="Lone Star Tile hero" className="h-full w-full" />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/20" />
         </motion.div>
@@ -285,7 +312,7 @@ export default function HomePage() {
             {/* Photo 1 — large, center-left */}
             <div className="flex flex-col gap-3" style={{ width: "52%", marginLeft: "18%" }}>
               <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] } } }}>
+                <motion.div variants={{ hidden: { y: "28%" }, visible: { y: "0%", transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } } }}>
                   <img src={portfolioImages[0].src} alt={portfolioImages[0].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
                 </motion.div>
               </motion.div>
@@ -299,7 +326,7 @@ export default function HomePage() {
             {/* Photo 2 — medium, right */}
             <div className="flex flex-col gap-3" style={{ width: "40%", marginLeft: "52%", marginTop: "80px" }}>
               <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, delay: 0.12, ease: [0.76, 0, 0.24, 1] } } }}>
+                <motion.div variants={{ hidden: { y: "28%" }, visible: { y: "0%", transition: { duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] } } }}>
                   <img src={portfolioImages[1].src} alt={portfolioImages[1].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
                 </motion.div>
               </motion.div>
@@ -313,7 +340,7 @@ export default function HomePage() {
             {/* Photo 3 — wide, left */}
             <div className="flex flex-col gap-3" style={{ width: "55%", marginLeft: "10%", marginTop: "80px" }}>
               <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, delay: 0.22, ease: [0.76, 0, 0.24, 1] } } }}>
+                <motion.div variants={{ hidden: { y: "28%" }, visible: { y: "0%", transition: { duration: 0.55, delay: 0.14, ease: [0.22, 1, 0.36, 1] } } }}>
                   <img src={portfolioImages[2].src} alt={portfolioImages[2].label} className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700" />
                 </motion.div>
               </motion.div>
@@ -336,7 +363,7 @@ export default function HomePage() {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.9, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <img src={img.src} alt={img.label} className="w-full h-[300px] object-cover" />
+                <RevealImage src={img.src} alt={img.label} className="w-full h-[300px]" delay={i * 0.08} />
                 <p className="switz-regular text-[16px] text-black tracking-[0.32px]">{img.label}</p>
               </motion.div>
             ))}

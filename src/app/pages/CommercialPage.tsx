@@ -62,12 +62,12 @@ function ImageReveal({
       viewport={{ once: true, amount: 0.1 }}
     >
       <motion.div
-        className="w-full h-full"
+        className="w-full h-full [will-change:transform]"
         variants={{
-          hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+          hidden: { y: "35%" },
           visible: {
-            clipPath: "inset(0% 0% 0% 0%)",
-            transition: { duration: 1.1, delay, ease: [0.76, 0, 0.24, 1] },
+            y: "0%",
+            transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
           },
         }}
       >
@@ -127,7 +127,7 @@ export default function CommercialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO HEADING ────────────────────────────────────── */}
-      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-10" style={{ minHeight: "100vh", background: "#fffae7" }}>
+      <section className="relative flex flex-col justify-start md:justify-start px-8 md:px-16 pt-24 md:pt-48 pb-28 md:pb-10" style={{ minHeight: "100vh", background: "#fffae7" }}>
         <div className="max-w-[900px]">
           <motion.div
             initial={{ opacity: 0 }}
@@ -170,7 +170,7 @@ export default function CommercialPage() {
 
         {/* Scroll hint — center on mobile, right bottom on desktop */}
         <motion.div
-          className="absolute bottom-28 left-1/2 -translate-x-1/2 md:bottom-10 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
+          className="absolute bottom-36 left-1/2 -translate-x-1/2 md:bottom-10 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -186,7 +186,7 @@ export default function CommercialPage() {
       </section>
 
       {/* ── PROJECTS ─────────────────────────────────────────── */}
-      <section className="px-8 md:px-16 pb-20">
+      <section className="px-8 md:px-16 pt-6 md:pt-0 pb-20">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-20">
           <ProjectCard
             title="Jefferson Bank of San Antonio"

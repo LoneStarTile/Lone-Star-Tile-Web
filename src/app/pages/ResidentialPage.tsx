@@ -51,9 +51,6 @@ function ImageReveal({
   className?: string;
   delay?: number;
 }) {
-  // Outer div: IntersectionObserver target — always has physical dimensions so
-  // the observer fires reliably. No visual animation here.
-  // Inner div: runs the clipPath wipe via variants inherited from the parent.
   return (
     <motion.div
       className={`overflow-hidden relative group ${className}`}
@@ -62,12 +59,12 @@ function ImageReveal({
       viewport={{ once: true, amount: 0.1 }}
     >
       <motion.div
-        className="w-full h-full"
+        className="w-full h-full [will-change:transform]"
         variants={{
-          hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+          hidden: { y: "35%" },
           visible: {
-            clipPath: "inset(0% 0% 0% 0%)",
-            transition: { duration: 1.1, delay, ease: [0.76, 0, 0.24, 1] },
+            y: "0%",
+            transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
           },
         }}
       >
@@ -85,7 +82,7 @@ export default function ResidentialPage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO LETTER ──────────────────────────────────────── */}
-      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-10" style={{ minHeight: "100vh" }}>
+      <section className="relative flex flex-col px-8 md:px-16 pt-36 pb-28 md:pb-10" style={{ minHeight: "100vh" }}>
         {/* Letter text — vertically centered in full viewport */}
         <div className="flex-1 flex items-center" style={{ paddingBottom: "12vh" }}>
           <div className="max-w-[700px]">
@@ -123,7 +120,7 @@ export default function ResidentialPage() {
         </div>
 
         {/* Scroll hint — pinned into view on mobile; flow layout on desktop */}
-        <div className="absolute bottom-28 left-1/2 z-10 -translate-x-1/2 md:static md:z-auto md:bottom-auto md:left-auto md:translate-x-0 md:w-full md:flex md:justify-center md:justify-end">
+        <div className="absolute bottom-36 left-1/2 z-10 -translate-x-1/2 md:static md:z-auto md:bottom-auto md:left-auto md:translate-x-0 md:w-full md:flex md:justify-center md:justify-end">
           <motion.p
             className="switz-regular text-[18px] text-black tracking-[0.36px] opacity-60"
             animate={{ y: [0, 8, 0] }}
@@ -135,7 +132,7 @@ export default function ResidentialPage() {
       </section>
 
       {/* ── CUSTOM KITCHEN ───────────────────────────────────── */}
-      <section className="px-8 md:px-16 pb-20 md:pb-28">
+      <section className="px-8 md:px-16 pt-6 md:pt-0 pb-20 md:pb-28">
         {/* Desktop — image with label underneath, right-aligned */}
         <div className="hidden md:flex flex-col gap-4" style={{ width: "74%" }}>
           <ImageReveal src={imgRectangle12} alt="Custom Kitchen" className="w-full h-[580px]" delay={0} />
