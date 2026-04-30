@@ -15,6 +15,13 @@ export default function Root() {
   const timeoutRefs = useRef<number[]>([]);
   const rafRef = useRef<number>(0);
 
+  /** Bypasses `html { scroll-behavior: smooth }` so route changes never animate scroll */
+  const scrollDocumentToTopInstant = () => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    setScrollY(0);
+  };
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -41,12 +48,12 @@ export default function Root() {
     timeoutRefs.current = [];
 
     setVisible(false);
-    window.scrollTo(0, 0);
-    setScrollY(0);
+    /* Keep current scroll position until the curtain has fully covered the screen */
 
     if (!isDesktop) {
       setCurtainPhase("idle");
       rafRef.current = requestAnimationFrame(() => {
+        scrollDocumentToTopInstant();
         setPageKey(location.pathname);
         setVisible(true);
       });
@@ -56,8 +63,7 @@ export default function Root() {
     setCurtainPhase("covering");
 
     const swapTimeout = window.setTimeout(() => {
-      window.scrollTo(0, 0);
-      setScrollY(0);
+      scrollDocumentToTopInstant();
       setPageKey(location.pathname);
       setVisible(true);
       setCurtainPhase("revealing");
@@ -107,9 +113,6 @@ export default function Root() {
           }}
         >
           <div className="absolute inset-0 bg-[#fffae7]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(255,255,255,0.65),rgba(255,255,255,0)_42%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(193,39,45,0.16),rgba(193,39,45,0)_60%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.06),rgba(0,0,0,0))]" />
         </motion.div>
       )}
     </div>

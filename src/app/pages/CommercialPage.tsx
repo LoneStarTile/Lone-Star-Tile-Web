@@ -139,7 +139,7 @@ export default function CommercialPage() {
               {["Texas sized projects", "Texas sized standards"].map((line, i) => (
                 <div key={i} style={{ overflow: "hidden" }}>
                   <motion.p
-                    className="switz-extrabold text-[22px] text-black tracking-[0.4px] leading-[1.3] whitespace-nowrap"
+                    className="switz-extrabold text-[28px] text-black tracking-[0.8px] leading-[1.5] whitespace-nowrap"
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
                     transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -150,12 +150,12 @@ export default function CommercialPage() {
               ))}
             </div>
 
-            {/* Desktop text */}
+            {/* Desktop text — matches Residential hero scale */}
             <div className="hidden md:block">
               {["Texas sized projects", "Texas sized standards"].map((line, i) => (
                 <div key={i} style={{ overflow: "hidden" }}>
                   <motion.p
-                    className="switz-extrabold text-[40px] text-black tracking-[0.8px] leading-[1.4]"
+                    className="switz-extrabold text-[36px] text-black tracking-[0.8px] leading-[1.5]"
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
                     transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -170,7 +170,7 @@ export default function CommercialPage() {
 
         {/* Scroll hint — center on mobile, right bottom on desktop */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
+          className="absolute bottom-28 left-1/2 -translate-x-1/2 md:bottom-10 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}

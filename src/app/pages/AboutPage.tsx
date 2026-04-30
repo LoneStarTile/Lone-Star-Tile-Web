@@ -271,17 +271,13 @@ export default function AboutPage() {
               style={{ scrollbarWidth: "none" }}
             >
               {whyChoose.map((item, i) => (
-                <motion.div
+                <div
                   key={i}
                   className="flex-shrink-0 w-[260px] md:w-[480px] flex flex-col gap-4 md:gap-6"
-                  initial={{ opacity: 0, x: 60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <p className="switz-extrabold text-[18px] md:text-[30px] text-black tracking-[0.36px] md:tracking-[0.6px] leading-[1.3]">{item.title}</p>
                   <p className="switz-bold text-[14px] md:text-[22px] text-black tracking-[0.28px] md:tracking-[0.44px] leading-[1.7]">{item.text}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 

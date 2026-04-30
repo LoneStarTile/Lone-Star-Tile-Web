@@ -122,8 +122,8 @@ export default function ResidentialPage() {
           </div>
         </div>
 
-        {/* Scroll hint — center on mobile, right on desktop */}
-        <div className="flex justify-center md:justify-end">
+        {/* Scroll hint — pinned into view on mobile; flow layout on desktop */}
+        <div className="absolute bottom-28 left-1/2 z-10 -translate-x-1/2 md:static md:z-auto md:bottom-auto md:left-auto md:translate-x-0 md:w-full md:flex md:justify-center md:justify-end">
           <motion.p
             className="switz-regular text-[18px] text-black tracking-[0.36px] opacity-60"
             animate={{ y: [0, 8, 0] }}
