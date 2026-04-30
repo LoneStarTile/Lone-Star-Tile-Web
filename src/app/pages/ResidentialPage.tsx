@@ -59,12 +59,12 @@ function ImageReveal({
       viewport={{ once: true, amount: 0.1 }}
     >
       <motion.div
-        className="w-full h-full [will-change:transform]"
+        className="w-full h-full"
         variants={{
-          hidden: { y: "35%" },
+          hidden: { clipPath: "inset(100% 0% 0% 0%)" },
           visible: {
-            y: "0%",
-            transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
+            clipPath: "inset(0% 0% 0% 0%)",
+            transition: { duration: 0.8, delay, ease: [0.76, 0, 0.24, 1] },
           },
         }}
       >

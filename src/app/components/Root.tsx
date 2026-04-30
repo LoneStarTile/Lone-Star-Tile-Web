@@ -8,6 +8,7 @@ import AboutPage from "../pages/AboutPage";
 import ResidentialPage from "../pages/ResidentialPage";
 import CommercialPage from "../pages/CommercialPage";
 import ContactPage from "../pages/ContactPage";
+import imgHomeHero from "figma:asset/faf500b9452a4888d24838c5d28723781c96a6d1.webp";
 
 const bundledImageModules = import.meta.glob("../../**/*.{webp,png,jpg,jpeg,gif}", {
   eager: true,
@@ -52,9 +53,11 @@ export default function Root() {
   /** Routes URL updates immediately; we defer swapping page content until the curtain fully covers (desktop). */
   const [displayedPath, setDisplayedPath] = useState(location.pathname);
   const [assetsReady, setAssetsReady] = useState(false);
+  const [initialRevealActive, setInitialRevealActive] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [curtainPhase, setCurtainPhase] = useState<"idle" | "covering">("idle");
   const [curtainColor, setCurtainColor] = useState("#fffae7");
+  const [curtainUsesHomePhoto, setCurtainUsesHomePhoto] = useState(false);
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 768);
   const timeoutRefs = useRef<number[]>([]);
   const rafRef = useRef<number>(0);
@@ -103,6 +106,13 @@ export default function Root() {
   }, []);
 
   useEffect(() => {
+    if (!assetsReady) return;
+    setInitialRevealActive(true);
+    const id = window.setTimeout(() => setInitialRevealActive(false), 700);
+    return () => window.clearTimeout(id);
+  }, [assetsReady]);
+
+  useEffect(() => {
     if (location.pathname === displayedPath) return;
 
     cancelAnimationFrame(rafRef.current);
@@ -121,6 +131,7 @@ export default function Root() {
       return;
     }
 
+    setCurtainUsesHomePhoto(location.pathname === "/");
     setCurtainColor(location.pathname === "/about" ? "#af2828" : "#fffae7");
     setCurtainPhase("covering");
 
@@ -150,11 +161,7 @@ export default function Root() {
   const isTransparent = (isHome && scrollY < 750) || (isAbout && scrollY < 600);
 
   if (!assetsReady) {
-    return (
-      <div className="min-h-screen w-full bg-[#fffae7] flex items-center justify-center">
-        <p className="switz-medium text-[16px] tracking-[0.32px] text-black/70">Loading assets...</p>
-      </div>
-    );
+    return <div className="min-h-screen w-full bg-[#fffae7]" />;
   }
 
   return (
@@ -180,10 +187,31 @@ export default function Root() {
             ease: [0.76, 0, 0.24, 1],
           }}
         >
-          <div
-            className="absolute inset-0"
-            style={{ backgroundColor: curtainColor, opacity: 1 }}
-          />
+          {curtainUsesHomePhoto ? (
+            <img
+              src={imgHomeHero}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+              aria-hidden
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: curtainColor, opacity: 1 }}
+            />
+          )}
+        </motion.div>
+      )}
+
+      {initialRevealActive && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 z-[80] overflow-hidden"
+          initial={{ y: "0%" }}
+          animate={{ y: "-105%" }}
+          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+        >
+          <div className="absolute inset-0 bg-[#fffae7]" />
         </motion.div>
       )}
     </div>

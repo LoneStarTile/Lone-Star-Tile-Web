@@ -16,11 +16,11 @@ const fadeUp = {
 };
 
 const imageReveal = {
-  hidden: { y: "30%", opacity: 0.85 },
+  hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 1 },
   visible: {
-    y: "0%",
+    clipPath: "inset(0% 0% 0% 0%)",
     opacity: 1,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
@@ -50,12 +50,12 @@ function RevealImage({
       <motion.img
         src={src}
         alt={alt}
-        className="w-full h-full object-cover [will-change:transform]"
+        className="w-full h-full object-cover"
         variants={{
-          hidden: { y: "35%" },
+          hidden: { clipPath: "inset(100% 0% 0% 0%)" },
           visible: {
-            y: "0%",
-            transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
+            clipPath: "inset(0% 0% 0% 0%)",
+            transition: { duration: 0.8, delay, ease: [0.76, 0, 0.24, 1] },
           },
         }}
       />
@@ -312,7 +312,7 @@ export default function HomePage() {
             {/* Photo 1 — large, center-left */}
             <div className="flex flex-col gap-3" style={{ width: "52%", marginLeft: "18%" }}>
               <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                <motion.div variants={{ hidden: { y: "28%" }, visible: { y: "0%", transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } } }}>
+                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } } }}>
                   <img src={portfolioImages[0].src} alt={portfolioImages[0].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
                 </motion.div>
               </motion.div>
@@ -326,7 +326,7 @@ export default function HomePage() {
             {/* Photo 2 — medium, right */}
             <div className="flex flex-col gap-3" style={{ width: "40%", marginLeft: "52%", marginTop: "80px" }}>
               <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                <motion.div variants={{ hidden: { y: "28%" }, visible: { y: "0%", transition: { duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] } } }}>
+                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 0.8, delay: 0.1, ease: [0.76, 0, 0.24, 1] } } }}>
                   <img src={portfolioImages[1].src} alt={portfolioImages[1].label} className="w-full h-[560px] object-cover hover:scale-105 transition-transform duration-700" />
                 </motion.div>
               </motion.div>
@@ -340,7 +340,7 @@ export default function HomePage() {
             {/* Photo 3 — wide, left */}
             <div className="flex flex-col gap-3" style={{ width: "55%", marginLeft: "10%", marginTop: "80px" }}>
               <motion.div className="overflow-hidden" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                <motion.div variants={{ hidden: { y: "28%" }, visible: { y: "0%", transition: { duration: 0.55, delay: 0.14, ease: [0.22, 1, 0.36, 1] } } }}>
+                <motion.div variants={{ hidden: { clipPath: "inset(100% 0% 0% 0%)" }, visible: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] } } }}>
                   <img src={portfolioImages[2].src} alt={portfolioImages[2].label} className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700" />
                 </motion.div>
               </motion.div>
