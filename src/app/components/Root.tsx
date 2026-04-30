@@ -53,7 +53,8 @@ export default function Root() {
   const [displayedPath, setDisplayedPath] = useState(location.pathname);
   const [assetsReady, setAssetsReady] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [curtainPhase, setCurtainPhase] = useState<"idle" | "covering" | "revealing">("idle");
+  const [curtainPhase, setCurtainPhase] = useState<"idle" | "covering">("idle");
+  const [curtainColor, setCurtainColor] = useState("#fffae7");
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 768);
   const timeoutRefs = useRef<number[]>([]);
   const rafRef = useRef<number>(0);
@@ -107,7 +108,6 @@ export default function Root() {
     cancelAnimationFrame(rafRef.current);
     const COVER_DURATION_MS = 650;
     const SWAP_DELAY_AFTER_COVER_MS = 30;
-    const REVEAL_DURATION_MS = 700;
 
     timeoutRefs.current.forEach((id) => window.clearTimeout(id));
     timeoutRefs.current = [];
@@ -121,18 +121,19 @@ export default function Root() {
       return;
     }
 
+    setCurtainColor(location.pathname === "/about" ? "#af2828" : "#fffae7");
     setCurtainPhase("covering");
 
     const swapTimeout = window.setTimeout(() => {
       scrollDocumentToTopInstant();
       setDisplayedPath(location.pathname);
-      setCurtainPhase("revealing");
+      setCurtainPhase("idle");
       requestAnimationFrame(() => scrollDocumentToTopInstant());
     }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS);
 
     const cleanupTimeout = window.setTimeout(() => {
       setCurtainPhase("idle");
-    }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + REVEAL_DURATION_MS);
+    }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + 10);
 
     timeoutRefs.current = [swapTimeout, cleanupTimeout];
   }, [location.pathname, displayedPath, isDesktop]);
@@ -172,18 +173,16 @@ export default function Root() {
           animate={
             curtainPhase === "covering"
               ? { y: "0%" }
-              : curtainPhase === "revealing"
-                ? { y: "-105%" }
-                : { y: "-105%" }
+              : { y: "-105%" }
           }
           transition={{
-            duration: curtainPhase === "covering" ? 0.65 : 0.7,
+            duration: curtainPhase === "covering" ? 0.65 : 0.02,
             ease: [0.76, 0, 0.24, 1],
           }}
         >
           <div
             className="absolute inset-0"
-            style={{ backgroundColor: "#fffae7", opacity: 1 }}
+            style={{ backgroundColor: curtainColor, opacity: 1 }}
           />
         </motion.div>
       )}
