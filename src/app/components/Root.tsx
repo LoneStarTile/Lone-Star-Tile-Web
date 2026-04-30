@@ -10,27 +10,6 @@ import CommercialPage from "../pages/CommercialPage";
 import ContactPage from "../pages/ContactPage";
 import imgHomeHero from "figma:asset/faf500b9452a4888d24838c5d28723781c96a6d1.webp";
 
-const bundledImageModules = import.meta.glob("../../**/*.{webp,png,jpg,jpeg,gif}", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
-
-const bundledImageUrls = Object.values(bundledImageModules);
-
-const pageImageUrls = [
-  "/about-photo-1.webp",
-  "/about-photo-2.webp",
-  "/about-photo-3.webp",
-  "/circle-k.webp",
-  "/kitchen-backsplash.webp",
-  "/living-room.webp",
-  "https://images.unsplash.com/photo-1768413292551-10011d6c354e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXRocm9vbSUyMHRpbGUlMjBtYXJibGUlMjByZW5vdmF0aW9ufGVufDF8fHx8MTc3NDc0OTMwOHww&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1666418093542-95ef85253732?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBsYXlpbmclMjB0aWxlJTIwZmxvb3IlMjBpbnN0YWxsYXRpb24lMjB3b3JrZXJ8ZW58MXx8fHwxNzc0NzUwMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1758548157195-67d141468467?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmFmdHNtYW4lMjB0aWxlJTIwaW5zdGFsbGF0aW9uJTIwcmVzaWRlbnRpYWwlMjBob21lfGVufDF8fHx8MTc3NDc1MDE4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1567238563567-b99d8ac66e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aWxlJTIwd29ya2VyJTIwZ3JvdXRpbmclMjBmbG9vciUyMGNvbnN0cnVjdGlvbiUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzQ3NTAxODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1770822662831-c361f15790ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW4lMjBjb25zdHJ1Y3Rpb24lMjBjcmV3JTIwam9iJTIwc2l0ZSUyMHdvcmtpbmd8ZW58MXx8fHwxNzc0NzUwMTg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-];
-
 function PageForPath({ path }: { path: string }) {
   switch (path) {
     case "/":
@@ -52,10 +31,8 @@ export default function Root() {
   const location = useLocation();
   /** Routes URL updates immediately; we defer swapping page content until the curtain fully covers (desktop). */
   const [displayedPath, setDisplayedPath] = useState(location.pathname);
-  const [assetsReady, setAssetsReady] = useState(false);
-  const [initialRevealActive, setInitialRevealActive] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [curtainPhase, setCurtainPhase] = useState<"idle" | "covering">("idle");
+  const [curtainPhase, setCurtainPhase] = useState<"idle" | "covering" | "fading-home">("idle");
   const [curtainColor, setCurtainColor] = useState("#fffae7");
   const [curtainUsesHomePhoto, setCurtainUsesHomePhoto] = useState(false);
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 768);
@@ -77,21 +54,6 @@ export default function Root() {
   };
 
   useEffect(() => {
-    const preloadImage = (src: string) =>
-      new Promise<void>((resolve) => {
-        const image = new Image();
-        image.decoding = "async";
-        image.loading = "eager";
-        image.onload = () => resolve();
-        image.onerror = () => resolve();
-        image.src = src;
-      });
-
-    const allImageUrls = Array.from(new Set([...bundledImageUrls, ...pageImageUrls]));
-    Promise.all(allImageUrls.map((url) => preloadImage(url))).finally(() => setAssetsReady(true));
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -104,13 +66,6 @@ export default function Root() {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
-
-  useEffect(() => {
-    if (!assetsReady) return;
-    setInitialRevealActive(true);
-    const id = window.setTimeout(() => setInitialRevealActive(false), 700);
-    return () => window.clearTimeout(id);
-  }, [assetsReady]);
 
   useEffect(() => {
     if (location.pathname === displayedPath) return;
@@ -143,10 +98,20 @@ export default function Root() {
     }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS);
 
     const cleanupTimeout = window.setTimeout(() => {
+      if (location.pathname === "/") {
+        setCurtainPhase("fading-home");
+        return;
+      }
       setCurtainPhase("idle");
     }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + 10);
 
-    timeoutRefs.current = [swapTimeout, cleanupTimeout];
+    const finishHomeFadeTimeout = window.setTimeout(() => {
+      if (location.pathname === "/") {
+        setCurtainPhase("idle");
+      }
+    }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + 360);
+
+    timeoutRefs.current = [swapTimeout, cleanupTimeout, finishHomeFadeTimeout];
   }, [location.pathname, displayedPath, isDesktop]);
 
   useEffect(() => {
@@ -159,10 +124,6 @@ export default function Root() {
   const isHome = location.pathname === "/";
   const isAbout = location.pathname === "/about";
   const isTransparent = (isHome && scrollY < 750) || (isAbout && scrollY < 600);
-
-  if (!assetsReady) {
-    return <div className="min-h-screen w-full bg-[#fffae7]" />;
-  }
 
   return (
     <div style={{ minHeight: "100dvh" }}>
@@ -179,11 +140,13 @@ export default function Root() {
           initial={false}
           animate={
             curtainPhase === "covering"
-              ? { y: "0%" }
-              : { y: "-105%" }
+              ? { y: "0%", opacity: 1 }
+              : curtainPhase === "fading-home"
+                ? { y: "0%", opacity: 0 }
+                : { y: "-105%", opacity: 1 }
           }
           transition={{
-            duration: curtainPhase === "covering" ? 0.65 : 0.02,
+            duration: curtainPhase === "covering" ? 0.65 : curtainPhase === "fading-home" ? 0.32 : 0.02,
             ease: [0.76, 0, 0.24, 1],
           }}
         >
@@ -203,17 +166,6 @@ export default function Root() {
         </motion.div>
       )}
 
-      {initialRevealActive && (
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[80] overflow-hidden"
-          initial={{ y: "0%" }}
-          animate={{ y: "-105%" }}
-          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-        >
-          <div className="absolute inset-0 bg-[#fffae7]" />
-        </motion.div>
-      )}
     </div>
   );
 }
