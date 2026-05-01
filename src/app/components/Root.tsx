@@ -69,6 +69,12 @@ export default function Root() {
   }, []);
 
   useEffect(() => {
+    // Keep transition safety surfaces in sync even when nav doesn't animate.
+    setCurtainUsesHomePhoto(location.pathname === "/");
+    setCurtainColor(location.pathname === "/about" ? "#af2828" : "#fffae7");
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       const anchor = target?.closest("a[data-page-transition]");
@@ -101,8 +107,6 @@ export default function Root() {
       return;
     }
 
-    setCurtainUsesHomePhoto(location.pathname === "/");
-    setCurtainColor(location.pathname === "/about" ? "#af2828" : "#fffae7");
     setCurtainPhase("covering");
 
     const swapTimeout = window.setTimeout(() => {
