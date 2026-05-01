@@ -170,7 +170,7 @@ export default function CommercialPage() {
 
         {/* Scroll hint — center on mobile, right bottom on desktop */}
         <motion.div
-          className="absolute bottom-36 left-1/2 -translate-x-1/2 md:bottom-10 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
+          className="absolute bottom-[7.5rem] left-1/2 -translate-x-1/2 md:bottom-10 md:left-auto md:translate-x-0 md:right-16 flex flex-col justify-end"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}

@@ -93,25 +93,15 @@ export default function Root() {
     const swapTimeout = window.setTimeout(() => {
       scrollDocumentToTopInstant();
       setDisplayedPath(location.pathname);
-      setCurtainPhase("idle");
+      setCurtainPhase(location.pathname === "/" ? "fading-home" : "idle");
       requestAnimationFrame(() => scrollDocumentToTopInstant());
     }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS);
 
     const cleanupTimeout = window.setTimeout(() => {
-      if (location.pathname === "/") {
-        setCurtainPhase("fading-home");
-        return;
-      }
       setCurtainPhase("idle");
-    }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + 10);
+    }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + (location.pathname === "/" ? 340 : 10));
 
-    const finishHomeFadeTimeout = window.setTimeout(() => {
-      if (location.pathname === "/") {
-        setCurtainPhase("idle");
-      }
-    }, COVER_DURATION_MS + SWAP_DELAY_AFTER_COVER_MS + 360);
-
-    timeoutRefs.current = [swapTimeout, cleanupTimeout, finishHomeFadeTimeout];
+    timeoutRefs.current = [swapTimeout, cleanupTimeout];
   }, [location.pathname, displayedPath, isDesktop]);
 
   useEffect(() => {

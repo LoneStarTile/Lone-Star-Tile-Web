@@ -157,7 +157,7 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#fffae7" }}>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden min-h-[126vh] h-[126vh] md:min-h-[100vh] md:h-[100vh]">
+      <section className="relative w-full overflow-hidden min-h-[110vh] h-[110vh] md:min-h-[100vh] md:h-[100vh]">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.08 }}
@@ -175,7 +175,7 @@ export default function HomePage() {
 
         {/* Scroll hint */}
         <motion.div
-          className="absolute bottom-16 md:bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-[7.5rem] md:bottom-10 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
