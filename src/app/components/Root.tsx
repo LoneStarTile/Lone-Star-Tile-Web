@@ -71,20 +71,11 @@ export default function Root() {
     if (location.pathname === displayedPath) return;
 
     cancelAnimationFrame(rafRef.current);
-    const COVER_DURATION_MS = 650;
+    const COVER_DURATION_MS = isDesktop ? 650 : 550;
     const SWAP_DELAY_AFTER_COVER_MS = 30;
 
     timeoutRefs.current.forEach((id) => window.clearTimeout(id));
     timeoutRefs.current = [];
-
-    if (!isDesktop) {
-      setCurtainPhase("idle");
-      rafRef.current = requestAnimationFrame(() => {
-        scrollDocumentToTopInstant();
-        setDisplayedPath(location.pathname);
-      });
-      return;
-    }
 
     setCurtainUsesHomePhoto(location.pathname === "/");
     setCurtainColor(location.pathname === "/about" ? "#af2828" : "#fffae7");
@@ -123,38 +114,36 @@ export default function Root() {
       </div>
       <Footer />
 
-      {isDesktop && (
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[70] overflow-hidden"
-          initial={false}
-          animate={
-            curtainPhase === "covering"
-              ? { y: "0%", opacity: 1 }
-              : curtainPhase === "fading-home"
-                ? { y: "0%", opacity: 0 }
-                : { y: "-105%", opacity: 1 }
-          }
-          transition={{
-            duration: curtainPhase === "covering" ? 0.65 : curtainPhase === "fading-home" ? 0.32 : 0.02,
-            ease: [0.76, 0, 0.24, 1],
-          }}
-        >
-          {curtainUsesHomePhoto ? (
-            <img
-              src={imgHomeHero}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover"
-              aria-hidden
-            />
-          ) : (
-            <div
-              className="absolute inset-0"
-              style={{ backgroundColor: curtainColor, opacity: 1 }}
-            />
-          )}
-        </motion.div>
-      )}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-[70] overflow-hidden"
+        initial={false}
+        animate={
+          curtainPhase === "covering"
+            ? { y: "0%", opacity: 1 }
+            : curtainPhase === "fading-home"
+              ? { y: "0%", opacity: 0 }
+              : { y: "-105%", opacity: 0 }
+        }
+        transition={{
+          duration: curtainPhase === "covering" ? (isDesktop ? 0.65 : 0.55) : curtainPhase === "fading-home" ? 0.38 : 0.12,
+          ease: [0.76, 0, 0.24, 1],
+        }}
+      >
+        {curtainUsesHomePhoto ? (
+          <img
+            src={imgHomeHero}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden
+          />
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: curtainColor, opacity: 1 }}
+          />
+        )}
+      </motion.div>
 
     </div>
   );
