@@ -171,6 +171,10 @@ export default function Root() {
             style={{ backgroundColor: curtainColor, opacity: 1 }}
           />
         )}
+        <div
+          className="absolute inset-x-0 bottom-0 bg-[#fffae7]"
+          style={{ height: "max(18px, env(safe-area-inset-bottom))" }}
+        />
       </motion.div>
 
     </div>
