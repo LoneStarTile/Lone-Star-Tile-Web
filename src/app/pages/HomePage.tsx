@@ -164,7 +164,11 @@ export default function HomePage() {
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <RevealImage src={imgPhoto} alt="Lone Star Tile hero" className="h-full w-full" />
+          <img
+            src={imgPhoto}
+            alt="Lone Star Tile hero"
+            className="h-full w-full object-cover"
+          />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/20" />
         </motion.div>
