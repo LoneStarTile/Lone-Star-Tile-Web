@@ -38,6 +38,7 @@ export default function Root() {
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 768);
   const timeoutRefs = useRef<number[]>([]);
   const rafRef = useRef<number>(0);
+  const shouldAnimateNextNavigationRef = useRef(false);
 
   /** Forces top reset without any smooth-scroll interpolation on route changes. */
   const scrollDocumentToTopInstant = () => {
@@ -68,7 +69,21 @@ export default function Root() {
   }, []);
 
   useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const anchor = target?.closest("a[data-page-transition]");
+      shouldAnimateNextNavigationRef.current = anchor?.getAttribute("data-page-transition") === "curtain";
+    };
+
+    document.addEventListener("click", handleDocumentClick, true);
+    return () => document.removeEventListener("click", handleDocumentClick, true);
+  }, []);
+
+  useEffect(() => {
     if (location.pathname === displayedPath) return;
+
+    const shouldAnimate = shouldAnimateNextNavigationRef.current;
+    shouldAnimateNextNavigationRef.current = false;
 
     cancelAnimationFrame(rafRef.current);
     const COVER_DURATION_MS = isDesktop ? 650 : 550;
@@ -76,6 +91,15 @@ export default function Root() {
 
     timeoutRefs.current.forEach((id) => window.clearTimeout(id));
     timeoutRefs.current = [];
+
+    if (!shouldAnimate) {
+      setCurtainPhase("idle");
+      rafRef.current = requestAnimationFrame(() => {
+        scrollDocumentToTopInstant();
+        setDisplayedPath(location.pathname);
+      });
+      return;
+    }
 
     setCurtainUsesHomePhoto(location.pathname === "/");
     setCurtainColor(location.pathname === "/about" ? "#af2828" : "#fffae7");

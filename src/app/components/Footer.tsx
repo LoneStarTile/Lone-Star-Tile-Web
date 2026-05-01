@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Desktop layout */}
         <div className="hidden md:flex justify-between gap-12">
           <div className="flex-shrink-0">
-            <Link to="/">
+            <Link to="/" data-page-transition="curtain">
               <img
                 src={imgLogo}
                 alt="Lone Star Tile"
@@ -31,10 +31,10 @@ export default function Footer() {
 
             <div className="flex flex-col gap-3">
               <p className="switz-bold text-[22px] tracking-[0.44px] text-black leading-[48px]">company</p>
-              <Link to="/residential" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Residential</Link>
-              <Link to="/commercial" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Commercial</Link>
-              <Link to="/about" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">About</Link>
-              <Link to="/contact" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Contact</Link>
+              <Link to="/residential" data-page-transition="curtain" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Residential</Link>
+              <Link to="/commercial" data-page-transition="curtain" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Commercial</Link>
+              <Link to="/about" data-page-transition="curtain" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">About</Link>
+              <Link to="/contact" data-page-transition="curtain" className="switz-regular text-[14px] tracking-[0.28px] text-black leading-[28px] hover:underline">Contact</Link>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function Footer() {
         {/* Mobile layout */}
         <div className="md:hidden flex gap-8">
           <div className="flex-1">
-            <Link to="/">
+            <Link to="/" data-page-transition="curtain">
               <img
                 src={imgLogo}
                 alt="Lone Star Tile"
@@ -58,10 +58,10 @@ export default function Footer() {
           </div>
           <div className="mb-6 mr-[40px] flex-shrink-0">
             <p className="switz-bold text-[14px] tracking-[0.28px] text-black leading-[28px]">company</p>
-            <Link to="/residential" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Residential</Link>
-            <Link to="/commercial" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Commercial</Link>
-            <Link to="/about" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">About</Link>
-            <Link to="/contact" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Contact</Link>
+            <Link to="/residential" data-page-transition="curtain" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Residential</Link>
+            <Link to="/commercial" data-page-transition="curtain" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Commercial</Link>
+            <Link to="/about" data-page-transition="curtain" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">About</Link>
+            <Link to="/contact" data-page-transition="curtain" className="block switz-regular text-[12px] tracking-[0.24px] text-black leading-[28px]">Contact</Link>
           </div>
         </div>
 

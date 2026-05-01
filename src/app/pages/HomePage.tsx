@@ -233,7 +233,7 @@ export default function HomePage() {
             </motion.p>
 
             <motion.div variants={fadeUp}>
-              <Link to="/about">
+            <Link to="/about" data-page-transition="curtain">
                 <motion.div
                   className="inline-flex items-center justify-center bg-[#af2828] px-6 h-[44px] cursor-pointer"
                   style={{ borderRadius: 40 }}
@@ -394,7 +394,7 @@ export default function HomePage() {
             <p className="switz-regular text-[18px] md:text-[24px] text-black tracking-[0.48px] leading-[1.7]">
               From historic renovations to custom builds throughout San Antonio, we transform homes with expert tile installation. Homeowners trust us to guide them through every decision; from selecting the perfect backsplash to coordinating colors that complement their style. Architects value our precision in executing their residential designs with meticulous attention to detail. Whether it's a spa-like master bath or a stunning kitchen, we bring craftsmanship and care to every home project.
             </p>
-            <Link to="/residential">
+            <Link to="/residential" data-page-transition="curtain">
               <motion.div
                 className="inline-flex items-center justify-center bg-[#af2828] px-6 h-[44px] cursor-pointer w-fit"
                 style={{ borderRadius: 40 }}
@@ -420,7 +420,7 @@ export default function HomePage() {
             <p className="switz-regular text-[18px] md:text-[24px] text-black tracking-[0.48px] leading-[1.7]">
               General contractors across Texas rely on Lone Star Tile for commercial projects that demand reliability, speed, and quality. From polished corporate spaces to multi-location rollouts for franchise businesses, we deliver on-schedule installations that pass inspection the first time. Commercial architects trust our ability to execute complex specifications while maintaining design integrity. Whether it's high-traffic retail, restaurant kitchens, or corporate headquarters, we coordinate seamlessly with your timeline and other trades—every single time.
             </p>
-            <Link to="/commercial">
+            <Link to="/commercial" data-page-transition="curtain">
               <motion.div
                 className="inline-flex items-center justify-center bg-[#af2828] px-6 h-[44px] cursor-pointer w-fit"
                 style={{ borderRadius: 40 }}

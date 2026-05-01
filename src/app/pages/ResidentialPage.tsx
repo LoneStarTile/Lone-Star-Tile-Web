@@ -240,7 +240,7 @@ export default function ResidentialPage() {
             <p className="switz-regular text-[18px] md:text-[22px] text-black tracking-[0.44px] leading-[1.7] mb-8">
               Whether you're renovating a historic gem or building your dream kitchen, we guide you through every decision. From selecting the perfect tile to coordinating colors that complement your style. We respect your home, work on your schedule, and deliver results you'll love for decades. We understand your vision demands precision. Our team works seamlessly with architects and designers to execute detailed specifications, meet tight timelines, and maintain the highest standards of craftsmanship.
             </p>
-            <Link to="/about">
+            <Link to="/about" data-page-transition="curtain">
               <motion.div
                 className="inline-flex items-center justify-center bg-[#af2828] rounded-[40px] px-6 h-[44px] cursor-pointer w-fit"
                 whileHover={{ scale: 1.04, backgroundColor: "#9a2222" }}
