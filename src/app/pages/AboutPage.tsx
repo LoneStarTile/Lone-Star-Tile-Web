@@ -183,6 +183,22 @@ export default function AboutPage() {
             Lone Star Tile isn't just about laying tile—it's about building relationships that last as long as our installations. As a proud woman-owned business serving San Antonio and throughout Texas, we've earned our reputation one project at a time through unwavering quality, reliable timelines, and genuine care for every space we transform.
           </motion.p>
         </div>
+
+        {/* Scroll hint */}
+        <motion.div
+          className="absolute bottom-[7.5rem] md:bottom-10 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+        >
+          <motion.p
+            className="switz-regular text-[18px] text-white tracking-[0.36px]"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            (Scroll Down)
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* ── ALTERNATING PHOTO/TEXT ────────────────────────────── */}
