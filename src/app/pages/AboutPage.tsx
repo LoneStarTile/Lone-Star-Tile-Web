@@ -78,25 +78,6 @@ const whyChoose = [
   },
 ];
 
-const teamMembers = [
-  {
-    img: "https://images.unsplash.com/photo-1666418093542-95ef85253732?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBsYXlpbmclMjB0aWxlJTIwZmxvb3IlMjBpbnN0YWxsYXRpb24lMjB3b3JrZXJ8ZW58MXx8fHwxNzc0NzUwMTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    name: "Marcus T. Webb",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1758548157195-67d141468467?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmFmdHNtYW4lMjB0aWxlJTIwaW5zdGFsbGF0aW9uJTIwcmVzaWRlbnRpYWwlMjBob21lfGVufDF8fHx8MTc3NDc1MDE4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    name: "James R. Ortega",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1567238563567-b99d8ac66e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aWxlJTIwd29ya2VyJTIwZ3JvdXRpbmclMjBmbG9vciUyMGNvbnN0cnVjdGlvbiUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzQ3NTAxODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    name: "Derek A. Castillo",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1770822662831-c361f15790ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW4lMjBjb25zdHJ1Y3Rpb24lMjBjcmV3JTIwam9iJTIwc2l0ZSUyMHdvcmtpbmd8ZW58MXx8fHwxNzc0NzUwMTg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    name: "Luis E. Ramirez",
-  },
-];
-
 const certLogos = [
   { src: imgWbenc1, alt: "WBENC" },
   { src: imgEsbe1, alt: "ESBE" },
@@ -308,49 +289,6 @@ export default function AboutPage() {
       {/* ── CERTIFICATIONS (Infinite Carousel) ───────────────── */}
       <section className="py-8 bg-[#fffae7]">
         <InfiniteCertCarousel />
-      </section>
-
-      {/* ── MEET OUR TEAM (2x2 Grid) ─────────────────────────── */}
-      <section className="py-20 px-8 md:px-16">
-        <div className="max-w-[900px] mx-auto">
-          <WordReveal
-            text="Meet our Team"
-            className="cab-black text-[32px] md:text-[67px] tracking-[-1.34px] text-black mb-16 text-center leading-[1.05] justify-center"
-          />
-
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={i}
-                className="flex flex-col gap-3 group"
-                variants={{
-                  hidden: { opacity: 0, y: 60 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
-                }}
-              >
-                <div className="overflow-hidden relative" style={{ aspectRatio: "383/463" }}>
-                  <motion.img
-                    src={member.img}
-                    alt="team member"
-                    className="w-full h-full object-cover"
-                    initial={{ scale: 1.1 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    whileHover={{ scale: 1.05 }}
-                  />
-                </div>
-                <p className="switz-regular text-[13px] md:text-[18px] text-black/40 tracking-[0.26px] italic">first, last</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
       </section>
     </div>
   );
