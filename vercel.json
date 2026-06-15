@@ -3,11 +3,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/favicon.ico",
-      "destination": "/favicon-48x48.png"
-    },
-    {
-      "source": "/((?!assets/|favicon|apple-touch-icon|site\\.webmanifest|.*\\.(png|webp|jpg|jpeg|ico|svg|css|js|json|txt|xml)).*)",
+      "source": "/((?!assets/|favicon|apple-touch-icon|site\\.webmanifest|robots\\.txt|.*\\.(png|webp|jpg|jpeg|ico|svg|css|js|json|txt|xml)).*)",
       "destination": "/index.html"
     }
   ]
