@@ -9,6 +9,7 @@ import ResidentialPage from "../pages/ResidentialPage";
 import CommercialPage from "../pages/CommercialPage";
 import ContactPage from "../pages/ContactPage";
 import imgHomeHero from "figma:asset/faf500b9452a4888d24838c5d28723781c96a6d1.webp";
+import { usePageMeta } from "../seo";
 
 function PageForPath({ path }: { path: string }) {
   switch (path) {
@@ -29,6 +30,7 @@ function PageForPath({ path }: { path: string }) {
 
 export default function Root() {
   const location = useLocation();
+  usePageMeta(location.pathname);
   /** Routes URL updates immediately; we defer swapping page content until the curtain fully covers (desktop). */
   const [displayedPath, setDisplayedPath] = useState(location.pathname);
   const [scrollY, setScrollY] = useState(0);

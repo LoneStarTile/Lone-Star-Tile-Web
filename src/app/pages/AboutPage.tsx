@@ -184,9 +184,9 @@ export default function AboutPage() {
           </motion.p>
         </div>
 
-        {/* Scroll hint */}
+        {/* Scroll hint — desktop only */}
         <motion.div
-          className="absolute bottom-[7.5rem] md:bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
