@@ -3,7 +3,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/((?!assets/|favicon|apple-touch-icon|site\\.webmanifest|robots\\.txt|.*\\.(png|webp|jpg|jpeg|ico|svg|css|js|json|txt|xml)).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
